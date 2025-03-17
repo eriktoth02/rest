@@ -55,11 +55,11 @@
           <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
           <li><a class="nav-link scrollto" href="restaurant.html">Reštaurácia</a></li>
           <li><a class="nav-link scrollto" href="party_koliba.html">Párty koliba</a></li>
-          <li><a class="nav-link scrollto" href="accpmmodation.html">Ubytovanie</a></li>
-          <li><a class="nav-link scrollto" href="sports fields.html">Športoviská</a></li>
           <li><a class="nav-link scrollto" href="wedding.html">Svadba</a></li>
+          <li><a class="nav-link scrollto" href="accpmmodation.html">Ubytovanie</a></li>
+          <li><a class="nav-link scrollto" href="sports fields.html">Šport a zábava</a></li>
 
-          <li class="dropdown"><a href="#"><span>Eventy</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Pre firmy</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               
                 <ui>
@@ -118,6 +118,8 @@
               cykloturistiky. Medzi obľúbené trasy patria Bankov, Alpinka, ako aj Jahodná. V zime je to hlavne
               lyžovanie na bežkách.
             </p>
+            
+
             <p>
               Navštívte nás, a určite sa naša Koliba stane Vašim obľúbeným miestom.
             </p>
@@ -127,7 +129,106 @@
       </div>
     </section><!-- End About Section -->
 
+    <!-- ======= Aktuality Section ======= -->
 
+    <section id="aktuality" class="aktuality">
+      
+      <style>
+        .aktuality {
+          background: #f5f5eb;
+          padding: 50px 0;
+          font-family: 'Arial', sans-serif;
+        }
+        .aktuality .container {
+          max-width: 900px;
+          margin: auto;
+          padding: 20px;
+          background: white;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+        }
+        .aktuality h2 {
+          text-align: center;
+          font-size: 28px;
+          color: #8a5a44;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+        .aktuality-list {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        @media (min-width: 768px) {
+          .aktuality-list {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        .aktualita {
+          background: white;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+          transition: 0.3s;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+        }
+        .aktualita:hover {
+          transform: translateY(-5px);
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .aktualita h4 {
+          font-size: 18px;
+          color: #6b4226;
+          margin-bottom: 10px;
+        }
+        .aktualita p {
+          font-size: 14px;
+          color: #555;
+          flex-grow: 1;
+        }
+        .aktualita .date {
+          font-size: 12px;
+          color: #999;
+          text-align: right;
+          margin-top: 10px;
+        }
+      </style>
+    
+      <div class="container">
+        <h2>Najnovšie aktuality</h2>
+        <div class="aktuality-list" id="aktuality-list">
+          <!-- Aktuality sa tu automaticky vložia cez JS -->
+        </div>
+      </div>
+    
+      <script>
+        const aktualityData = [
+          { title: "Nové zľavy na ubytovanie!", text: "Využite špeciálne zľavy na jar 2025.", date: "17. marca 2025" },
+          { title: "Rekonštrukcia spoločných priestorov", text: "Pripravujeme vylepšenie vonkajšej terasy.", date: "10. marca 2025" },
+          { title: "Zimná sezóna ukončená", text: "Ďakujeme za vašu priazeň, vidíme sa v lete!", date: "5. marca 2025" },
+          { title: "Nové športové aktivity", text: "Od apríla pribudne možnosť zapožičania e-bikov.", date: "1. marca 2025" }
+        ];
+    
+        function renderAktuality() {
+          const aktualityList = document.getElementById("aktuality-list");
+          aktualityData.forEach(aktualita => {
+            const aktualitaDiv = document.createElement("div");
+            aktualitaDiv.classList.add("aktualita");
+            aktualitaDiv.innerHTML = `
+              <h4>${aktualita.title}</h4>
+              <p>${aktualita.text}</p>
+              <div class="date">${aktualita.date}</div>
+            `;
+            aktualityList.appendChild(aktualitaDiv);
+          });
+        }
+    
+        document.addEventListener("DOMContentLoaded", renderAktuality);
+      </script>
+    </section>
+    <!-- End Aktuality Section -->
 
     <!-- ======= Menu Section ======= -->
     <section id="menu" class="menu section-bg">
@@ -152,7 +253,7 @@
     <div class="row" data-aos="fade-up" data-aos-delay="100">
       <div class="col-lg-12">
         <p>Na výber je široká ponuka kvalitných jedál, ktoré sa pripravujú z čerstvých a dôkladne vyberaných surovín.</p>
-          <p> zmienku určite stojí u nás pečený chlieb, domáce rezance do polievky či ručne lepené pirohy.</p>
+          <p> Za zmienku určite stojí u nás pečený chlieb, domáce rezance do polievky či ručne lepené pirohy.</p>
            <p>Samozrejmosťou sú aj jedlá z rýb a diviny.</p>              
             <p>Zaujímavosťou u nás sú tiež chutné jedlá, ktoré si sami pripravíte na lávovom kameni, a ktoré sa stanú pre Vás nezabudnuteľným zážitkom.</p>
             <p>Chuť jedál podčiarkuje atmosféra štýlovej slovenskej koliby a jej okolie. Uprostred reštaurácie sa nachádza štýlový gril, na ktorom sa v určených dňoch pripravujú špeciality priamo pred zrakmi hostí.</p>
@@ -259,9 +360,9 @@
         <div class="row g-0">
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="wedding.html">
-                <img src="assets/img/377115132_1704449813388901_6934657981911701547_n.jpg" alt="Ubytovanie" class="img-fluid">
-                <p class="image-text">Svadba</p>
+              <a href="restaurant.html">
+                <img src="assets/img/IMG_7257 o.jpg" alt="Párty Koliba" class="img-fluid">
+                <p class="image-text">Reštaurácia</p>
               </a>
             </div>
           </div>
@@ -269,15 +370,15 @@
             <div class="gallery-item">
               <a href="sports fields.html">
                 <img src="assets/img/sportoviska.jpg" alt="Reštaurácia" class="img-fluid">
-                <p class="image-text">Športoviská</p>
+                <p class="image-text">Šport a zábava</p>
               </a>
             </div>
           </div>
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="restaurant.html">
-                <img src="assets/img/IMG_7257 o.jpg" alt="Párty Koliba" class="img-fluid">
-                <p class="image-text">Reštaurácia</p>
+              <a href="wedding.html">
+                <img src="assets/img/377115132_1704449813388901_6934657981911701547_n.jpg" alt="Ubytovanie" class="img-fluid">
+                <p class="image-text">Svadba</p>
               </a>
             </div>
           </div>

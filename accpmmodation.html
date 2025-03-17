@@ -48,14 +48,16 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="index.html">Domov</a></li>
+          <li><a class="nav-link scrollto active" href="#hero">Domov</a></li>
+          <li><a class="nav-link scrollto" href="#about">O Nás</a></li>
+          <li><a class="nav-link scrollto" href="#menu">Menu</a></li>
           <li><a class="nav-link scrollto" href="restaurant.html">Reštaurácia</a></li>
           <li><a class="nav-link scrollto" href="party_koliba.html">Párty koliba</a></li>
-          <li><a class="nav-link scrollto" href="accpmmodation.html">Ubytovanie</a></li>
-          <li><a class="nav-link scrollto" href="sports fields.html">Športoviská</a></li>
           <li><a class="nav-link scrollto" href="wedding.html">Svadba</a></li>
+          <li><a class="nav-link scrollto" href="accpmmodation.html">Ubytovanie</a></li>
+          <li><a class="nav-link scrollto" href="sports fields.html">Šport a zábava</a></li>
 
-          <li class="dropdown"><a href="#"><span>Eventy</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Pre firmy</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               
                 <ui>
@@ -173,23 +175,163 @@
         </div>
     
         <div class="content">
-          <p>Koliba Zlatá podkova ponúka ubytovanie v troch zrubových domoch s pripojením na internet cez Wi-
-          Fi, ktoré sa nachádzajú v blízkosti hlavnej reštaurácie. Kapacita jedného dvojpodlažného zrubu je 8+1
-          osôb. Na prízemí je veľká obytná miestnosť, ktorú tvorí oddychová časť s rozťahovacou rohovou
-          pohovkou, televízorom a elektrickým krbom. Jej súčasťou je plne vybavená kuchynka, jedna izba na
-          spanie s prístelkou a kúpeľňa s umývadlom, WC a sprchovacím kútom.</p>
-    
-          <p>V podkroví sa nachádza manželský apartmán, jedna dvojposteľová a jedna trojposteľová izba.
-          Manželský apartmán a dvojposteľová izba sú s balkónom a s výhľadom na Párty Kolibu. Podkrovie
-          dopĺňa kúpeľňa s vaňou, dvoj umývadlom a WC.</p>
-    
-          <p>Zariadenie zrubových domov vytvára útulnú atmosféru a poskytuje jeho obyvateľom príjemný pocit
-          a relax, čo umocňuje aj okolitá zeleň. Zrubové domy postykujú našim klientom súkromie, no zároveň aj dobrý prístup k športoviskám a detskému ihrisku.</p>
-    
-          <p>Cenník...</p>
-          <p>V prípade záujmu nás kontaktujte.</p>
-    
-          
+          <h3>3 zrubové domy. V každom zrube sú 4 spálne a 2 kúpeľne. Až 9 lôžok v jednom zrube.</h3>
+          <h4>Kde budete spať:</h4>
+          <ul>
+            <li>Spálňa 1 – 1 manželská posteľ</li>
+            <li>Spálňa 2 – 2 x jednoposteľ</li>
+            <li>Spálňa 3 - 3 x jednoposteľ</li>
+            <li>Spálňa 4 – 1 x jednoposteľ rozťahovacia</li>
+          </ul>
+          <h4>Prečo sa ubytovať u nás:</h4>
+          <ul>
+            <li>Bezplatné parkovanie na mieste (rezervácia nie je potrebná)</li>
+            <li>Blízkosť letiska (9 km)</li>
+            <li>Len 7 min. cesty autom do centra mesta</li>
+            <li>Verejná hromadná doprava</li>
+            <li>Krásne prostredie</li>
+            <li>Bezplatné Wi-Fi</li>
+            <li>Všetky priestory sú nefajčiarske</li>
+            <li>Oplotený pozemok, vlastný vchod</li>
+            <li>Priestor pre vonkajšie sedenie</li>
+            <li>Rodinné izby</li>
+          </ul>
+
+          <h4>Vybavenosť:</h4>
+          <ul>
+            <li>Kuchyňa vybavená chladničkou, mikrovlnou rúrou, sporákom, rýchlovarnou kanvicou, kuchynským riadom a jedálenský kút pre 6 osôb</li>
+            <li>TV s plochou obrazovkou</li>
+            <li>Elektrický krb v obývačke</li>
+            <li>Balkón s výhľadom do záhrady</li>
+            <li>Dve kúpeľne</li>
+            <li>Sprchovací kút a vaňa</li>
+            <li>Posteľné prádlo, uteráky a osušky k dispozícii</li>
+          </ul>
+
+          <h4>Aktivity a zábava:</h4>
+          <ul>
+            <li>Bowling</li>
+            <li>Detské ihrisko</li>
+            <li>Multišportové ihriská v blízkosti</li>
+            <li>Cyklistika</li>
+            <li>Turistika</li>
+            <li>Bežky</li>
+            <li>Chutné jedlo</li>
+          </ul>
+
+          <h4>Dohovoríte sa:</h4>
+          <ul>
+            <li>Slovensky</li>
+            <li>Anglicky</li>
+          </ul>
+          <h4>Kalendár dostupnosti</h4>
+      <style>
+        #calendar-container {
+          text-align: center;
+          font-family: Arial, sans-serif;
+        }
+        #calendar-controls {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+        }
+        #calendar {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          gap: 5px;
+          text-align: center;
+          font-size: 16px;
+          max-width: 500px;
+          margin: auto;
+        }
+        .calendar-header {
+          font-weight: bold;
+          padding: 10px;
+          background-color: #f5f5f5;
+          border-radius: 5px;
+        }
+        .calendar-day {
+          padding: 15px;
+          border-radius: 50%;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .available { background-color: #b2fab4; color: #056608; }
+        .booked { background-color: #fab2b2; color: #960000; }
+        .selected { background-color: #333; color: #fff; }
+      </style>
+      <div id="calendar-container">
+        <div id="calendar-controls">
+          <button onclick="prevMonth()">&#9665; Predošlý</button>
+          <h3 id="calendar-title"></h3>
+          <button onclick="nextMonth()">Nasledujúci &#9655;</button>
+        </div>
+        <div id="calendar"></div>
+      </div>
+      <script>
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+        function renderCalendar(month, year) {
+          const calendar = document.getElementById("calendar");
+          calendar.innerHTML = "";
+          const title = document.getElementById("calendar-title");
+          title.textContent = new Intl.DateTimeFormat("sk-SK", { month: "long", year: "numeric" }).format(new Date(year, month));
+          let days = ["Po", "Ut", "St", "Št", "Pi", "So", "Ne"];
+          days.forEach(day => {
+            let div = document.createElement("div");
+            div.textContent = day;
+            div.classList.add("calendar-header");
+            calendar.appendChild(div);
+          });
+          let firstDay = new Date(year, month, 1).getDay();
+          firstDay = (firstDay === 0) ? 6 : firstDay - 1;
+          for (let i = 0; i < firstDay; i++) {
+            let empty = document.createElement("div");
+            calendar.appendChild(empty);
+          }
+          let daysInMonth = new Date(year, month + 1, 0).getDate();
+          for (let i = 1; i <= daysInMonth; i++) {
+            let day = document.createElement("div");
+            day.textContent = i;
+            day.classList.add("calendar-day");
+            day.classList.add(Math.random() > 0.7 ? "booked" : "available");
+            day.onclick = function () {
+              this.classList.toggle("selected");
+            };
+            calendar.appendChild(day);
+          }
+        }
+        function prevMonth() {
+          if (currentMonth === 0) {
+            currentMonth = 11;
+            currentYear--;
+          } else {
+            currentMonth--;
+          }
+          renderCalendar(currentMonth, currentYear);
+        }
+        function nextMonth() {
+          if (currentMonth === 11) {
+            currentMonth = 0;
+            currentYear++;
+          } else {
+            currentMonth++;
+          }
+          renderCalendar(currentMonth, currentYear);
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+          renderCalendar(currentMonth, currentYear);
+        });
+      </script>
+          <h4>Všeobecné podmienky ubytovania:</h4>
+          <ul>
+            <li>✔ Príchod: od 15:00</li>
+            <li>✔ Odchod: do 10:00</li>
+            <li>✔ Platba v hotovosti alebo platobnou kartou</li>
+            <li>✔ Nočný kľud od 22:00 do 06:00 (v prípade svadieb a veľkých osláv v Party Kolibe do 05:00)</li>
+            <li>✔ Domáce zvieratá nie sú povolené</li>
+            <li>✔ Parkovanie v objekte bezplatne</li>
+          </ul>
         </div>
     
       </div>
