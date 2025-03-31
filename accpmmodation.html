@@ -48,7 +48,7 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Domov</a></li>
+          <li><a class="nav-link scrollto active" href="index.html">Domov</a></li>
           <li><a class="nav-link scrollto" href="restaurant.html">Reštaurácia</a></li>
           <li><a class="nav-link scrollto" href="party_koliba.html">Párty koliba</a></li>
           <li><a class="nav-link scrollto" href="wedding.html">Svadba</a></li>
@@ -222,105 +222,7 @@
             <li>Slovensky</li>
             <li>Anglicky</li>
           </ul>
-          <h4>Kalendár dostupnosti</h4>
-      <style>
-        #calendar-container {
-          text-align: center;
-          font-family: Arial, sans-serif;
-        }
-        #calendar-controls {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 10px;
-        }
-        #calendar {
-          display: grid;
-          grid-template-columns: repeat(7, 1fr);
-          gap: 5px;
-          text-align: center;
-          font-size: 16px;
-          max-width: 500px;
-          margin: auto;
-        }
-        .calendar-header {
-          font-weight: bold;
-          padding: 10px;
-          background-color: #f5f5f5;
-          border-radius: 5px;
-        }
-        .calendar-day {
-          padding: 15px;
-          border-radius: 50%;
-          font-weight: bold;
-          cursor: pointer;
-        }
-        .available { background-color: #b2fab4; color: #056608; }
-        .booked { background-color: #fab2b2; color: #960000; }
-        .selected { background-color: #333; color: #fff; }
-      </style>
-      <div id="calendar-container">
-        <div id="calendar-controls">
-          <button onclick="prevMonth()">&#9665; Predošlý</button>
-          <h3 id="calendar-title"></h3>
-          <button onclick="nextMonth()">Nasledujúci &#9655;</button>
-        </div>
-        <div id="calendar"></div>
-      </div>
-      <script>
-        let currentMonth = new Date().getMonth();
-        let currentYear = new Date().getFullYear();
-        function renderCalendar(month, year) {
-          const calendar = document.getElementById("calendar");
-          calendar.innerHTML = "";
-          const title = document.getElementById("calendar-title");
-          title.textContent = new Intl.DateTimeFormat("sk-SK", { month: "long", year: "numeric" }).format(new Date(year, month));
-          let days = ["Po", "Ut", "St", "Št", "Pi", "So", "Ne"];
-          days.forEach(day => {
-            let div = document.createElement("div");
-            div.textContent = day;
-            div.classList.add("calendar-header");
-            calendar.appendChild(div);
-          });
-          let firstDay = new Date(year, month, 1).getDay();
-          firstDay = (firstDay === 0) ? 6 : firstDay - 1;
-          for (let i = 0; i < firstDay; i++) {
-            let empty = document.createElement("div");
-            calendar.appendChild(empty);
-          }
-          let daysInMonth = new Date(year, month + 1, 0).getDate();
-          for (let i = 1; i <= daysInMonth; i++) {
-            let day = document.createElement("div");
-            day.textContent = i;
-            day.classList.add("calendar-day");
-            day.classList.add(Math.random() > 0.7 ? "booked" : "available");
-            day.onclick = function () {
-              this.classList.toggle("selected");
-            };
-            calendar.appendChild(day);
-          }
-        }
-        function prevMonth() {
-          if (currentMonth === 0) {
-            currentMonth = 11;
-            currentYear--;
-          } else {
-            currentMonth--;
-          }
-          renderCalendar(currentMonth, currentYear);
-        }
-        function nextMonth() {
-          if (currentMonth === 11) {
-            currentMonth = 0;
-            currentYear++;
-          } else {
-            currentMonth++;
-          }
-          renderCalendar(currentMonth, currentYear);
-        }
-        document.addEventListener("DOMContentLoaded", function () {
-          renderCalendar(currentMonth, currentYear);
-        });
-      </script>
+          
           <h4>Všeobecné podmienky ubytovania:</h4>
           <ul>
             <li>✔ Príchod: od 15:00</li>
@@ -361,47 +263,62 @@
             }
           </style>
         
-          <div class="container" data-aos="fade-up">
+        <div class="container" data-aos="fade-up">
+
+          <div class="section-title">
+            <h2>Kontakt</h2>
+            <p>Spojte sa s nami pre viac informácií.</p>
+          </div>
         
-            <div class="section-title">
-              <h2>Kontakt</h2>
-              <p>Spojte sa s nami pre viac informácií.</p>
-            </div>
+          <div class="row mt-5 contact">
         
-            <div class="row mt-5 contact">
+            <div class="col-lg-8 mt-5 mt-lg-0">
         
-              
-        
-              <div class="col-lg-8 mt-5 mt-lg-0">
-        
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                  <div class="row">
-                    <div class="col-md-6 form-group">
-                      <input type="text" name="name" class="form-control" id="name" placeholder="Vaše meno" required>
-                    </div>
-                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                      <input type="email" class="form-control" name="email" id="email" placeholder="Váš email" required>
-                    </div>
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Vaše meno" required>
                   </div>
-                  <div class="form-group mt-3">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Predmet" required>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Váš email" required>
                   </div>
-                  <div class="form-group mt-3">
-                    <textarea class="form-control" name="message" rows="8" placeholder="Správa" required></textarea>
-                  </div>
-                  <div class="my-3">
-                    <div class="loading">Načítava sa...</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Vaša správa bola odoslaná. Ďakujeme!</div>
-                  </div>
-                  <div class="text-center"><button type="submit">Odoslať správu</button></div>
-                </form>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Predmet" required>
+                </div>
         
-              </div>
+                <!-- Dátum "od" a "do" vedľa seba -->
+                <div class="row mt-3">
+                  <div class="col-md-6 form-group">
+                    <label for="date_from">Od</label>
+                    <input type="date" class="form-control" name="date_from" id="date_from" required>
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <label for="date_to">Do</label>
+                    <input type="date" class="form-control" name="date_to" id="date_to" required>
+                  </div>
+                </div>
+        
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="8" placeholder="Správa" required></textarea>
+                </div>
+        
+                <div class="my-3">
+                  <div class="loading">Načítava sa...</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Vaša správa bola odoslaná. Ďakujeme!</div>
+                </div>
+                <div class="text-center"><button type="submit">Odoslať správu</button></div>
+              </form>
         
             </div>
         
           </div>
+        
+        </div>
+        
+        
+        
         </section>
 
   </main><!-- End #main -->
