@@ -90,70 +90,97 @@
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
+      <style>
+        .about .content {
+          color: white;
+          padding-top: 20px;
+        }
+    
+        .about ul {
+          list-style: none;
+          padding-left: 0;
+          margin-top: 20px;
+        }
+    
+        .about ul li {
+          position: relative;
+          padding-left: 28px;
+          margin-bottom: 15px;
+          line-height: 1.6;
+        }
+    
+        .about ul li::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 7px;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          border: 2px solid #bfa35f;
+          background-color: #bfa35f;
+          box-shadow: inset 0 0 0 2px white;
+        }
+    
+        .about h3 {
+          color: #bfa35f;
+          font-weight: bold;
+          margin-bottom: 20px;
+        }
+    
+        .about .about-img img {
+          border-radius: 10px;
+          width: 100%;
+          height: auto;
+        }
+    
+        .about .row {
+          margin-bottom: 60px;
+        }
+      </style>
+    
       <div class="container" data-aos="fade-up">
     
-        <!-- Prvý blok – obrázok vpravo -->
-        <div class="row mb-5">
+        <!-- Prvý blok – Koliba -->
+        <div class="row align-items-center mb-5">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
             <div class="about-img">
               <img src="assets/img/DJI_20250211090831_0057_D.JPG" alt="Koliba Zlatá podkova">
             </div>
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3 style="color: #bfa35f;">Koliba Zlatá podkova</h3>
-            <p class="fst-italic">
-              Koliba Zlatá podkova sa nachádza v Košiciach na sídlisku KVP priamo v prírode. Je to ideálne
-              stredisko pre relax, stretnutie s rodinou a priateľmi, teambuilding, či svadbu. Zároveň miesto, kde si
-              pochutnáte na kvalitných slovenských špecialitách.
-            </p>
+          <div class="col-lg-6 order-2 order-lg-1 content">
+            <h3>Koliba Zlatá podkova</h3>
             <ul>
-              <li><i class="bi bi-check-circle"></i> Celoročne si u nás môžete zahrať bowling.</li>
-              <li><i class="bi bi-check-circle"></i> Od apríla do októbra v prípade priaznivého počasia je k dispozícii posedenie vo vonkajších priestoroch s možnosťou občerstvenia sa v bufetoch.</li>
-              <li><i class="bi bi-check-circle"></i> Deti si vďaka nášmu detskému ihrisku prídu na svoje tiež (vstup spoplatnený).</li>
+              <li>Nachádza sa v Košiciach na sídlisku KVP priamo v prírode – ideálne miesto pre relax, stretnutia s rodinou a priateľmi, teambuilding či svadbu.</li>
+              <li>Ponúka príjemnú atmosféru so širokou ponukou tradičných slovenských jedál.</li>
+              <li>Lokalita je dostupná, má vlastné parkovisko a dobré spojenie do mesta.</li>
+              <li>Vhodná pre turistiku, cykloturistiku – blízko Bankov, Alpinka, Jahodná.</li>
             </ul>
-            <p>
-              O Vašu zábavu sa určite postarajú aj naše novovybudované športoviská, kde si môžete zahrať futbal, tenis, volejbal či nohejbal (online rezervácie na ....).
-            </p>
-            <p>
-              Lokalita Koliby Zlatá podkova ponúka možnosti aktívneho i pasívneho oddychu vo forme turistiky a
-              cykloturistiky. Medzi obľúbené trasy patria Bankov, Alpinka, ako aj Jahodná. V zime je to hlavne
-              lyžovanie na bežkách.
-            </p>
-            <p>
-              Navštívte nás, a určite sa naša Koliba stane Vašim obľúbeným miestom.
-            </p>
           </div>
         </div>
     
-        <!-- Druhý blok – obrázok vľavo -->
-        <div class="row">
+        <!-- Druhý blok – U nás nájdete -->
+        <div class="row align-items-center">
           <div class="col-lg-6 order-1 order-lg-1" data-aos="zoom-in" data-aos-delay="100">
             <div class="about-img">
               <img src="assets/img/DJI_20250211090817_0056_D.jpg" alt="U nás nájdete">
             </div>
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-2 content">
-            <h3 style="color: #bfa35f;">U nás nájdete</h3>
-            <p>
-              Reštauráciu s otvoreným kozubom a so zastrešenou terasou, s možnosťou ubytovania sa v zrubových domoch
-            </p>
-            <p>
-              Vonkajšie posedenie s nápojovým a jedálenským bufetom otvorené v prípade priaznivého počasia od apríla do októbra
-            </p>
-            <p>
-              Novovybudované športoviská - futbal, tenis, volejbal či nohejbal, ktoré si môžete rezervovať online cez .... (prosím doplniť)
-            </p>
-            <p>
-              Moderné detské ihrisko s nafukovacou trampolínou (vstup za poplatok)
-            </p>
-            <p>
-              Bowling, ktorý je k dispozícii celoročne
-            </p>
+          <div class="col-lg-6 order-2 order-lg-2 content">
+            <h3>U nás nájdete</h3>
+            <ul>
+              <li>Reštauráciu s otvoreným kozubom a zastrešenou terasou, s možnosťou ubytovania sa v zrubových domoch.</li>
+              <li>Vonkajšie posedenie s nápojovým a jedálenským bufetom – otvorené od apríla do októbra pri priaznivom počasí.</li>
+              <li>Novovybudované športoviská – futbal, tenis, volejbal, nohejbal (rezervácia online).</li>
+              <li>Moderné detské ihrisko s nafukovacou trampolínou (vstup za poplatok).</li>
+              <li>Bowling – k dispozícii počas celého roka.</li>
+            </ul>
           </div>
         </div>
     
       </div>
-    </section><!-- End About Section -->
+    </section>
+    <!-- End About Section -->
 
     <!-- ======= Aktuality Section ======= -->
 
@@ -259,42 +286,82 @@
     <!-- ======= Menu Section ======= -->
     <section id="menu" class="menu section-bg">
       <style>
+        .menu .section-title {
+          text-align: center;
+        }
+    
+        .menu p {
+          text-align: center;
+          margin: 0 auto 16px auto;
+          color: white;
+        }
+    
+        .menu p:nth-of-type(1) {
+          max-width: 80%;
+        }
+    
+        .menu p:nth-of-type(2) {
+          max-width: 70%;
+        }
+    
+        .menu p:nth-of-type(3) {
+          max-width: 60%;
+        }
+    
+        .menu p:nth-of-type(4) {
+          max-width: 50%;
+        }
+    
+        .menu p:nth-of-type(5) {
+          max-width: 40%;
+        }
+    
         .menu-buttons {
           display: flex;
           justify-content: center;
-          gap: 20px; /* Increased spacing between buttons */
-          margin-top: 20px;
+          gap: 20px;
+          margin-top: 30px;
         }
+    
         .menu-buttons a {
           padding: 12px 24px;
           font-size: 18px;
+          background-color: darkorange;
+          border-color: darkorange;
+          color: white;
+          text-decoration: none;
+          border-radius: 6px;
+        }
+    
+        .menu-buttons a:hover {
+          background-color: #e69500;
         }
       </style>
     
       <div class="container" data-aos="fade-up">
-    
         <div class="section-title">
-          <p>Menu</p>
+          <p style="color: #e5b565; font-size: 32px; font-weight: bold;">Menu</p>
         </div>
-    <div class="row" data-aos="fade-up" data-aos-delay="100">
-      <div class="col-lg-12">
-        <p>Na výber je široká ponuka kvalitných jedál, ktoré sa pripravujú z čerstvých a dôkladne vyberaných surovín.</p>
-          <p> Za zmienku určite stojí u nás pečený chlieb, domáce rezance do polievky či ručne lepené pirohy.</p>
-           <p>Samozrejmosťou sú aj jedlá z rýb a diviny.</p>              
+    
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12">
+            <p>Na výber je široká ponuka kvalitných jedál, ktoré sa pripravujú z čerstvých a dôkladne vyberaných surovín.</p>
+            <p>Za zmienku určite stojí u nás pečený chlieb, domáce rezance do polievky či ručne lepené pirohy.</p>
+            <p>Samozrejmosťou sú aj jedlá z rýb a diviny.</p>
             <p>Zaujímavosťou u nás sú tiež chutné jedlá, ktoré si sami pripravíte na lávovom kameni, a ktoré sa stanú pre Vás nezabudnuteľným zážitkom.</p>
             <p>Chuť jedál podčiarkuje atmosféra štýlovej slovenskej koliby a jej okolie. Uprostred reštaurácie sa nachádza štýlový gril, na ktorom sa v určených dňoch pripravujú špeciality priamo pred zrakmi hostí.</p>
-      </div>
-    </div>
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <div class="menu-buttons">
-              <a href="assets/jedalny-listok-2024.pdf" target="_blank" class="btn btn-primary" style="background-color: darkorange; border-color: darkorange;">Jedálny lístok</a>
-              <a href="assets/Nápojový lístok 2025.pdf" target="_blank" class="btn btn-primary" style="background-color: darkorange; border-color: darkorange;">Nápojový lístok</a>
-              <a href="assets/denne menu.pdf" target="_blank" class="btn btn-primary" style="background-color: darkorange; border-color: darkorange;">Denné menu</a>
-            </div>
           </div>
         </div>
     
+        <div class="row" data-aos="fade-up" data-aos-delay="150">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <div class="menu-buttons">
+              <a href="assets/jedalny-listok-2024.pdf" target="_blank">Jedálny lístok</a>
+              <a href="assets/Nápojový lístok 2025.pdf" target="_blank">Nápojový lístok</a>
+              <a href="assets/denne menu.pdf" target="_blank">Denné menu</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <!-- End Menu Section -->

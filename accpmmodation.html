@@ -76,164 +76,190 @@
     
 
     <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery">
-
-      
-
-      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-0">
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/IMG_6801 o.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/IMG_6801 o.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/IMG_6773 o.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/IMG_6773 o.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/IMG_6665 o.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/IMG_6665 o.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/IMG_6622.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/IMG_6622.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/IMG_6627.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/IMG_6627.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/IMG_6733 o.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/IMG_6733 o.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/IMG_6725 o.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/IMG_6725 o.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="assets/img/IMG_6697 o.jpg" class="gallery-lightbox" data-gall="gallery-item">
-                <img src="assets/img/IMG_6697 o.jpg" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div>
-
+    <section id="gallery" class="gallery-section">
+      <style>
+        .gallery-section {
+          padding: 60px 0;
+        }
+    
+        .gallery-grid {
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr;
+          grid-template-rows: repeat(2, 300px);
+          gap: 10px;
+        }
+    
+        .gallery-grid img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+    
+        .gallery-grid .big {
+          grid-column: 1 / 2;
+          grid-row: 1 / 3;
+        }
+    
+        .gallery-grid .photo2 { grid-column: 2 / 3; grid-row: 1 / 2; }
+        .gallery-grid .photo3 { grid-column: 3 / 4; grid-row: 1 / 2; }
+        .gallery-grid .photo4 { grid-column: 2 / 3; grid-row: 2 / 3; }
+        .gallery-grid .photo5 { grid-column: 3 / 4; grid-row: 2 / 3; }
+    
+        .gallery-button-wrapper {
+          margin-top: 20px;
+          text-align: right;
+        }
+    
+        .gallery-button {
+          padding: 12px 20px;
+          background: #fff;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          font-weight: 600;
+          cursor: pointer;
+          text-decoration: none;
+          color: #333;
+        }
+    
+        @media (max-width: 768px) {
+          .gallery-grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+          }
+    
+          .gallery-grid .big,
+          .gallery-grid .photo2,
+          .gallery-grid .photo3,
+          .gallery-grid .photo4,
+          .gallery-grid .photo5 {
+            grid-column: auto;
+            grid-row: auto;
+            height: 200px;
+          }
+    
+          .gallery-button-wrapper {
+            text-align: center;
+          }
+        }
+      </style>
+    
+      <div class="container">
+        <div class="gallery-grid">
+    
+          <!-- Obrázky obalené s glightbox class -->
+          <a href="assets/img/IMG_6801 o.jpg" class="glightbox big"><img src="assets/img/IMG_6801 o.jpg" alt=""></a>
+          <a href="assets/img/IMG_6773 o.jpg" class="glightbox photo2"><img src="assets/img/IMG_6773 o.jpg" alt=""></a>
+          <a href="assets/img/IMG_6665 o.jpg" class="glightbox photo3"><img src="assets/img/IMG_6665 o.jpg" alt=""></a>
+          <a href="assets/img/IMG_6622.jpg" class="glightbox photo4"><img src="assets/img/IMG_6622.jpg" alt=""></a>
+          <a href="assets/img/IMG_6627.jpg" class="glightbox photo5"><img src="assets/img/IMG_6627.jpg" alt=""></a>
+    
+          <!-- Skryté obrázky len v lightboxe -->
+          <a href="assets/img/IMG_6733 o.jpg" class="glightbox" style="display: none;"></a>
+          <a href="assets/img/IMG_6725 o.jpg" class="glightbox" style="display: none;"></a>
+          <a href="assets/img/IMG_6697 o.jpg" class="glightbox" style="display: none;"></a>
+    
         </div>
-
+    
+        
       </div>
-    </section><!-- End Gallery Section -->
+    </section>
 
     <section id="ubytovanie" class="ubytovanie">
       <style>
-        .ubytovanie .content {
-          color: black; /* Ensures text is black */
+        .ubytovanie {
+          padding: 60px 0;
+          background-color: #f9f9f4;
+          color: #000;
         }
-        .ubytovanie img {
-          width: 100%;
-          height: auto;
-          margin-bottom: 20px;
+    
+        .ubytovanie .section-title {
+          text-align: center;
+          margin-bottom: 40px;
+        }
+    
+        .ubytovanie .cards {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 30px;
+        }
+    
+        .ubytovanie .card {
+          background: white;
+          border-radius: 16px;
+          padding: 30px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+          max-width: 360px;
+          flex: 1 1 300px;
+        }
+    
+        .ubytovanie .card h3 {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 15px;
+        }
+    
+        .ubytovanie .card ul {
+          padding-left: 18px;
+          margin: 0;
+        }
+    
+        .ubytovanie .card ul li {
+          margin-bottom: 8px;
         }
       </style>
     
       <div class="container" data-aos="fade-up">
-    
         <div class="section-title">
           <h2>UBYTOVANIE</h2>
           <p>Útulné zruby s dokonalou atmosférou a výhľadom na okolitú prírodu.</p>
         </div>
     
-        <div class="content">
-          <h3>3 zrubové domy. V každom zrube sú 4 spálne a 2 kúpeľne. Až 9 lôžok v jednom zrube.</h3>
-          <h4>Kde budete spať:</h4>
-          <ul>
-            <li>Spálňa 1 – 1 manželská posteľ</li>
-            <li>Spálňa 2 – 2 x jednoposteľ</li>
-            <li>Spálňa 3 - 3 x jednoposteľ</li>
-            <li>Spálňa 4 – 1 x jednoposteľ rozťahovacia</li>
-          </ul>
-          <h4>Prečo sa ubytovať u nás:</h4>
-          <ul>
-            <li>Bezplatné parkovanie na mieste (rezervácia nie je potrebná)</li>
-            <li>Blízkosť letiska (9 km)</li>
-            <li>Len 7 min. cesty autom do centra mesta</li>
-            <li>Verejná hromadná doprava</li>
-            <li>Krásne prostredie</li>
-            <li>Bezplatné Wi-Fi</li>
-            <li>Všetky priestory sú nefajčiarske</li>
-            <li>Oplotený pozemok, vlastný vchod</li>
-            <li>Priestor pre vonkajšie sedenie</li>
-            <li>Rodinné izby</li>
-          </ul>
-
-          <h4>Vybavenosť:</h4>
-          <ul>
-            <li>Kuchyňa vybavená chladničkou, mikrovlnou rúrou, sporákom, rýchlovarnou kanvicou, kuchynským riadom a jedálenský kút pre 6 osôb</li>
-            <li>TV s plochou obrazovkou</li>
-            <li>Elektrický krb v obývačke</li>
-            <li>Balkón s výhľadom do záhrady</li>
-            <li>Dve kúpeľne</li>
-            <li>Sprchovací kút a vaňa</li>
-            <li>Posteľné prádlo, uteráky a osušky k dispozícii</li>
-          </ul>
-
-          <h4>Aktivity a zábava:</h4>
-          <ul>
-            <li>Bowling</li>
-            <li>Detské ihrisko</li>
-            <li>Multišportové ihriská v blízkosti</li>
-            <li>Cyklistika</li>
-            <li>Turistika</li>
-            <li>Bežky</li>
-            <li>Chutné jedlo</li>
-          </ul>
-
-          <h4>Dohovoríte sa:</h4>
-          <ul>
-            <li>Slovensky</li>
-            <li>Anglicky</li>
-          </ul>
-          
-          <h4>Všeobecné podmienky ubytovania:</h4>
-          <ul>
-            <li>✔ Príchod: od 15:00</li>
-            <li>✔ Odchod: do 10:00</li>
-            <li>✔ Platba v hotovosti alebo platobnou kartou</li>
-            <li>✔ Nočný kľud od 22:00 do 06:00 (v prípade svadieb a veľkých osláv v Party Kolibe do 05:00)</li>
-            <li>✔ Domáce zvieratá nie sú povolené</li>
-            <li>✔ Parkovanie v objekte bezplatne</li>
-          </ul>
-        </div>
+        <div class="cards">
     
+          <!-- Zrubový dom -->
+          <div class="card">
+            <h3>Zrubové domy</h3>
+            <p>3 zrubové domy. V každom zrube sú 4 spálne a 2 kúpeľne. Až 9 lôžok v jednom zrube.</p>
+            <ul>
+              <li>Spálňa 1 – 1 manželská posteľ</li>
+              <li>Spálňa 2 – 2 x jednoposteľ</li>
+              <li>Spálňa 3 – 3 x jednoposteľ</li>
+              <li>Spálňa 4 – 1 x jednoposteľ rozťahovacia</li>
+            </ul>
+          </div>
+    
+          <!-- Vybavenosť a služby -->
+          <div class="card">
+            <h3>Vybavenosť & služby</h3>
+            <ul>
+              <li>Kuchyňa, jedálenský kút, chladnička, mikrovlnka</li>
+              <li>TV s plochou obrazovkou</li>
+              <li>Elektrický krb, balkón s výhľadom</li>
+              <li>Dve kúpeľne – sprcha, vaňa</li>
+              <li>Bezplatné Wi-Fi a parkovanie</li>
+              <li>Oplotený pozemok, vlastný vchod</li>
+              <li>Rodinné izby, nefajčiarske priestory</li>
+            </ul>
+          </div>
+    
+          <!-- Zábava a podmienky -->
+          <div class="card">
+            <h3>Zábava & Podmienky</h3>
+            <ul>
+              <li>Bowling, detské ihrisko</li>
+              <li>Multišportové ihriská, cyklistika, turistika</li>
+              <li>Bežky, chutné jedlo</li>
+              <li>Príchod: od 15:00 | Odchod: do 10:00</li>
+              <li>Platba: hotovosť / karta</li>
+              <li>Nočný kľud: 22:00–06:00 (pri oslavách do 05:00)</li>
+              <li>Domáce zvieratá: nie sú povolené</li>
+              <li>Jazyky: slovenský, anglický</li>
+            </ul>
+          </div>
+    
+        </div>
       </div>
     </section>
     
@@ -265,14 +291,14 @@
         
         <div class="container" data-aos="fade-up">
 
-          <div class="section-title">
+          <div class="section-title text-center">
             <h2>Kontakt</h2>
             <p>Spojte sa s nami pre viac informácií.</p>
           </div>
         
-          <div class="row mt-5 contact">
+          <div class="row mt-5 contact justify-content-center">
         
-            <div class="col-lg-8 mt-5 mt-lg-0">
+            <div class="col-lg-8 mt-5 mt-lg-0 mx-auto">
         
               <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                 <div class="row">
