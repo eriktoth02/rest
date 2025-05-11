@@ -81,71 +81,111 @@
 
     <!-- ======= Contact Section ======= -->
     <section id="book-a-table" class="book-a-table">
-      <div class="container" data-aos="fade-up">
+    <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2></h2>
-          <p></p>
-        </div>
-        <div class="section-title">
-          <h2></h2>
-          <p></p>
-        </div>
-        <div class="section-title">
-          
-          <p>Rezervácia</p>
+            <h2></h2>
+            <h2></h2>
+            <h2></h2>
+            <h2></h2>
+            <h2></h2>
+            <h2></h2>
+            <h2></h2>
+            <h2></h2>
+            <h2></h2>
+            <p>Rezervácia ihriska</p>
         </div>
 
-        
-        <form action="forms/reserve-sports-field.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
-          <div class="row">
-            <div class="col-lg-4 col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Vaše meno" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
+        <form action="forms/book-ihriska.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Vaše meno" required>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Váš email" required>
+                </div>
+                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Vaše telefónne číslo" required>
+                </div>
+
+                <div class="col-lg-4 col-md-6 form-group mt-3">
+                    <label for="date">Dátum rezervácie</label>
+                    <input type="date" name="date" id="date" class="form-control" required>
+                </div>
+
+                <div class="col-lg-4 col-md-6 form-group mt-3">
+                    <label for="pitch">Ihrisko</label>
+                    <select class="form-control" name="pitch" id="pitch" required>
+                        <option value="">Vyberte ihrisko</option>
+                        <option value="Futbal">Futbal</option>
+                        <option value="Tenis">Tenis</option>
+                        <option value="Volejbal">Volejbal</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-4 col-md-6 form-group mt-3">
+                    <label for="time">Voľné časy</label>
+                    <select name="time" id="time" class="form-control" required>
+                        <option value="">Najskôr vyberte dátum a ihrisko</option>
+                    </select>
+                </div>
+
+                <div class="col-lg-4 col-md-6 form-group mt-3">
+                    <input type="number" class="form-control" name="duration" id="duration" placeholder="Trvanie (min)" required>
+                </div>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Váš email" data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
+
+            <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Správa"></textarea>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              <input type="text" class="form-control" name="phone" id="phone" placeholder="Vaše telefónne číslo" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
+
+            <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Vaša rezervácia bola odoslaná. Ďakujeme!</div>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="date" name="date" class="form-control" id="date" placeholder="Dátum" data-rule="required" data-msg="Please select a date">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="time" class="form-control" name="time" id="time" placeholder="Čas" data-rule="required" data-msg="Please select a time">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="number" class="form-control" name="duration" id="duration" placeholder="Trvanie (min)" data-rule="minlen:1" data-msg="Please enter duration in minutes">
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <select class="form-control" name="pitch" id="pitch" data-rule="required" data-msg="Please select a pitch">
-                <option value="">Vyberte ihrisko</option>
-                <option value="football">Futbal</option>
-                <option value="tennis">Tenis</option>
-                <option value="volleyball">Volejbal</option>
-              </select>
-              <div class="validate"></div>
-            </div>
-          </div>
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Správa"></textarea>
-            <div class="validate"></div>
-          </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your reservation request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Rezervovať teraz</button></div>
+            <div class="text-center"><button type="submit">Rezervovať teraz</button></div>
         </form>
+    </div>
+</section>
 
-      </div>
-    </section><!-- End Book A Table Section --><!-- End Book Accommodation Section --><!-- End Contact Section -->
+<!-- Skript na načítanie voľných časov -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dateInput = document.getElementById('date');
+    const fieldSelect = document.getElementById('pitch');
+    const timeSelect = document.getElementById('time');
+    const durationInput = document.getElementById('duration');
+
+    function loadAvailableTimes() {
+        const date = dateInput.value;
+        const field = fieldSelect.value;
+        const duration = durationInput.value || 60;
+
+        if (date && field && duration) {
+            fetch(`forms/get-available-times.php?date=${date}&field=${field}&duration=${duration}`)
+                .then(response => response.json())
+                .then(times => {
+                    timeSelect.innerHTML = '<option value="">Vyberte čas</option>';
+                    if (times.length === 0) {
+                        timeSelect.innerHTML = '<option value="">Žiadne voľné časy</option>';
+                    } else {
+                        times.forEach(time => {
+                            const option = document.createElement('option');
+                            option.value = time;
+                            option.textContent = time;
+                            timeSelect.appendChild(option);
+                        });
+                    }
+                });
+        }
+    }
+
+    dateInput.addEventListener('change', loadAvailableTimes);
+    fieldSelect.addEventListener('change', loadAvailableTimes);
+    durationInput.addEventListener('change', loadAvailableTimes);
+});
+</script>
+<!-- End Book A Table Section --><!-- End Book Accommodation Section --><!-- End Contact Section -->
 
   </main><!-- End #main -->
 

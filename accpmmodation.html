@@ -101,10 +101,25 @@
           grid-row: 1 / 3;
         }
     
-        .gallery-grid .photo2 { grid-column: 2 / 3; grid-row: 1 / 2; }
-        .gallery-grid .photo3 { grid-column: 3 / 4; grid-row: 1 / 2; }
-        .gallery-grid .photo4 { grid-column: 2 / 3; grid-row: 2 / 3; }
-        .gallery-grid .photo5 { grid-column: 3 / 4; grid-row: 2 / 3; }
+        .gallery-grid .photo2 {
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+        }
+    
+        .gallery-grid .photo3 {
+          grid-column: 3 / 4;
+          grid-row: 1 / 2;
+        }
+    
+        .gallery-grid .photo4 {
+          grid-column: 2 / 3;
+          grid-row: 2 / 3;
+        }
+    
+        .gallery-grid .photo5 {
+          grid-column: 3 / 4;
+          grid-row: 2 / 3;
+        }
     
         .gallery-button-wrapper {
           margin-top: 20px;
@@ -122,31 +137,31 @@
           color: #333;
         }
     
+        /* Text pod obrázkami */
+        .additional-text {
+          margin-top: 20px;
+          font-size: 1rem;
+          line-height: 1.6;
+          color: #000; /* Čierny text */
+        }
+    
+        .additional-text a {
+          text-decoration: none;
+          color: #b89e5a;
+          font-weight: 700;
+        }
+    
+        /* Pre responzívne zobrazenie */
         @media (max-width: 768px) {
           .gallery-grid {
             grid-template-columns: 1fr;
             grid-template-rows: auto;
-          }
-    
-          .gallery-grid .big,
-          .gallery-grid .photo2,
-          .gallery-grid .photo3,
-          .gallery-grid .photo4,
-          .gallery-grid .photo5 {
-            grid-column: auto;
-            grid-row: auto;
-            height: 200px;
-          }
-    
-          .gallery-button-wrapper {
-            text-align: center;
           }
         }
       </style>
     
       <div class="container">
         <div class="gallery-grid">
-    
           <!-- Obrázky obalené s glightbox class -->
           <a href="assets/img/IMG_6801 o.jpg" class="glightbox big"><img src="assets/img/IMG_6801 o.jpg" alt=""></a>
           <a href="assets/img/IMG_6773 o.jpg" class="glightbox photo2"><img src="assets/img/IMG_6773 o.jpg" alt=""></a>
@@ -158,10 +173,14 @@
           <a href="assets/img/IMG_6733 o.jpg" class="glightbox" style="display: none;"></a>
           <a href="assets/img/IMG_6725 o.jpg" class="glightbox" style="display: none;"></a>
           <a href="assets/img/IMG_6697 o.jpg" class="glightbox" style="display: none;"></a>
-    
         </div>
     
-        
+        <!-- Text pod obrázkami -->
+        <div class="additional-text">
+          <p>Koliba Zlatá podkova ponúka ubytovanie v troch zrubových domoch, ktoré sa nachádzajú v blízkosti hlavnej reštaurácie. Štýlové drevenice majú krásny výhľad na okolitú prírodu a nachádzajú sa len 4,5 km od centra mesta Košice. Kapacita každého dvojpodlažného zrubu je 8+1 osôb. Zariadenie zrubových domov vytvára útulnú atmosféru a poskytuje jeho obyvateľom príjemný pocit a relax.</p>
+          <p>Na prízemí je veľká obytná miestnosť, ktorú tvorí oddychová časť s rozťahovacou rohovou pohovkou, televízorom a elektrickým krbom. Jej súčasťou je plne vybavená kuchynka, jedna izba na spanie s prístelkou a kúpeľňa s umývadlom, WC a sprchovacím kútom. V podkroví sa nachádza manželský apartmán, jedna dvojposteľová a jedna trojposteľová izba. Manželský apartmán a dvojposteľová izba sú s balkónom a s výhľadom na Párty Kolibu. Podkrovie dopĺňa kúpeľňa s vaňou, dvoj umývadlom a WC.</p>
+          <p>Cenník ubytovania nájdete <a href="assets/Cenník ubytovania.pdf">TU.</a></p>
+        </div>
       </div>
     </section>
 
@@ -300,7 +319,7 @@
         
             <div class="col-lg-8 mt-5 mt-lg-0 mx-auto">
         
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <form action="forms/book-ubytovanie.php" method="post" role="form" class="php-email-form">
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <input type="text" name="name" class="form-control" id="name" placeholder="Vaše meno" required>

@@ -84,122 +84,257 @@
 
     <!-- ======= Gallery Section ======= -->
     <!-- ======= Gallery Section ======= -->
-<section id="gallery" class="gallery">
-
-  <style>
-    .wedding-box {
-  background-color: #fff;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
-  border-radius: 24px;
-  padding: 50px 35px;
-  text-align: center;
-  height: 100%;
-  color: #000;
-  font-size: 1.3rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.wedding-box img {
-  width: 100%;
-  height: auto;
-  border-radius: 18px;
-  margin-bottom: 30px;
-  object-fit: cover;
-  max-height: 360px;
-}
-
-.wedding-box h5 {
-  font-size: 1.9rem;
-  margin-bottom: 25px;
-  font-weight: 700;
-}
-
-.wedding-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
-}
+    <section id="gallery" class="gallery">
+      <style>
+        /* --------- Štýly kariet (ešte väčšie) --------- */
+        .wedding-box {
+          width: 420px;           /* väčšia šírka */
+          max-width: 100%;
+          background-color: #fff;
+          box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+          border-radius: 24px;
+          padding: 50px 40px;     /* väčšie vnútorné odsadenie */
+          text-align: center;
+          color: #000;
+          font-size: 1.3rem;      /* väčší základný text */
+          display: flex;
+          flex-direction: column;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
     
-  </style>
-  
-  <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+        .wedding-box img {
+          width: calc(100% + 80px);      /* 100% šírka + 2×40px */
+          margin: -50px -40px 20px;      /* ¬ horný/spodný margin: -topPadding, -sidePadding, margin-bottom */
+          max-height: 360px;             /* alebo daj väčšiu hodnotu, ak chceš */
+          object-fit: cover;
+          border-radius: 18px;
+        }
     
-  
-    <!-- Veľký široký obrázok na vrchu -->
-    <div class="row g-0">
-      <div class="col-12">
-        <div class="gallery-item">
-          <a href="assets/img/487185422_1246727317455700_1916994978073366033_n.jpg" class="gallery-lightbox" data-gall="gallery-item">
-            <img src="assets/img/487185422_1246727317455700_1916994978073366033_n.jpg" alt="Veľký obrázok" class="img-fluid w-100" style="max-height: 400px; object-fit: cover; object-position: center 40%;">
-          </a>
-        </div>
-      </div>
-    </div>
+        .wedding-box h5 {
+          font-size: 2rem;        /* väčší nadpis */
+          margin-bottom: 24px;
+          font-weight: 700;
+        }
+    
+        .wedding-box p {
+          font-size: 1.15rem;
+          line-height: 1.6;
+          margin-bottom: auto;
+        }
+    
+        .wedding-box:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+        }
+    
+        /* medzery medzi kartami */
+        .gallery .row {
+          --bs-gutter-x: 2rem;
+          --bs-gutter-y: 2rem;
+        }
 
-    <!-- Vložený text medzi veľkým obrázkom a 4 obrázkami -->
-    <div class="row mt-4">
-      <div class="container py-5" style="color: #000; max-width: 900px; font-size: 1.15rem;">
-        <p><strong>Snívate o krásnej a jedinečnej svadbe?</strong> Máte radi prírodu a túžite po romantike?</p>
-      
-        <p>Koliba Zlatá podkova Vám ponúka štýlovú drevostavbu – <strong>Párty Kolibu</strong>, kde sa Váš sen môže stať skutočnosťou. Kombinácia dreva a elegancie vytvára atmosféru, ktorú inde nenájdete.</p>
-      
-        <p>Vonkajší areál pozostáva z <strong>romantickej záhrady s jazierkom, altánku a troch zrubových domov</strong> s možnosťou ubytovania, ktoré poskytujú dokonalé súkromie. Párty Koliba je ideálnym miestom pre svadbu až do 86 osôb.</p>
-      
-        <p>V prípade záujmu nás neváhajte kontaktovať na <a href="mailto:office@zlatapodkova.sk">office@zlatapodkova.sk</a>. Radi sa postaráme o to, aby bol Váš veľký deň naozaj nezabudnuteľný.</p>
-      
-        <p><em>Ako darček</em> od nás získate <strong>poukážku na večeru</strong> pri príležitosti Vášho prvého výročia sobáša.</p>
-      
-        <p><a href="assets/Svadobné podmienky - 2025.pdf" target="_blank">Podmienky</a>, kalendár v PDF</p>
-      </div>
-    </div>
-    
-    <!-- Riadok so štyrmi obrázkami a textom pod každým -->
-    <div class="container my-5">
-      <div class="row gy-5 gx-5">
         
-        <!-- Box 1 – Svadba s ubytovaním -->
-        <div class="col-lg-4 col-md-6">
-          <div class="wedding-box">
-            <img src="assets/img/7cda534d-f805-4363-af45-1a65cc631f47.jpg" alt="Svadba s ubytovaním">
-            <h5>Výzdoba na mieru a ubytovanie</h5>
-            <p>Výzdobu svadobnej sály podľa Vašich predstáv zabezpečujeme našou partnerskou agentúrou.
-
-              V prípade záujmu Vám vieme pripraviť aj výzdobu exteriéru – romantické osvetlenie altánku, sviečky, lampáše, vonkajšie sedenie či dekorácie pri zruboch.
-              
-              K dispozícii sú tri drevené zruby s kapacitou 9 osôb. Pre novomanželov poskytujeme svadobný apartmán zadarmo. </p>
+      </style>
+    
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+        <!-- Veľký úvodný obrázok -->
+        <div class="row g-0">
+          <div class="col-12">
+            <div class="gallery-item">
+              <a href="assets/img/487185422_1246727317455700_1916994978073366033_n.jpg"
+                 class="gallery-lightbox"
+                 data-gall="gallery-item">
+                <img src="assets/img/487185422_1246727317455700_1916994978073366033_n.jpg"
+                     alt="Veľký obrázok"
+                     class="img-fluid w-100"
+                     style="height:500px; object-fit:cover; object-position:center 40%;">
+              </a>
+            </div>
           </div>
         </div>
     
-        <!-- Box 2 – Obrad v prírode -->
-        <div class="col-lg-4 col-md-6">
-          <div class="wedding-box">
-            <img src="assets/img/7d7601f4-533a-4b1c-95d5-d8e3fd30b203.jpg" alt="Obrad v prírode">
-            <h5>Svadobné menu</h5>
-            <p>Pripravíme menu, ktoré poteší aj tých najnáročnejších gurmánov.
-
-              V ponuke máme viacero kombinácií s aperitívom, predjedlom, polievkou, hlavným jedlom a bohatými bufetmi.
-              
-              Ceny balíčkov sú 56 €, 66 € a 76 € / osoba. Platné pre rok 2024. Kompletnú ponuku nájdete <a href="assets/Svadobné balíčky -2025pdf.pdf">TU</a>.</p>
+        <!-- Úvodný text -->
+        <div class="row mt-4">
+          <div class="container py-5" style="max-width:900px; color:#000; font-size:1.15rem;">
+            <p><strong>Snívate o krásnej a jedinečnej svadbe?</strong> Máte radi prírodu a túžite po romantike?</p>
+            <p>Koliba Zlatá podkova Vám ponúka štýlovú drevostavbu – <strong>Párty Kolibu</strong>, kde sa Váš sen môže stať skutočnosťou. Kombinácia dreva a elegancie vytvára atmosféru, ktorú inde nenájdete.</p>
+            <p>Vonkajší areál pozostáva z <strong>romantickej záhrady s jazierkom, altánku a troch zrubových domov</strong> s možnosťou ubytovania, ktoré poskytujú dokonalé súkromie. Párty Koliba je ideálnym miestom pre svadbu až do 86 osôb.</p>
+            <p>V prípade záujmu nás neváhajte kontaktovať na <a href="mailto:office@zlatapodkova.sk">office@zlatapodkova.sk</a>. Radi sa postaráme o to, aby bol Váš veľký deň naozaj nezabudnuteľný.</p>
+            <p><em>Ako darček</em> od nás získate <strong>poukážku na večeru</strong> pri príležitosti Vášho prvého výročia sobáša.</p>
+            <p><a href="assets/Svadobné podmienky - 2025.pdf" target="_blank">Podmienky</a> v PDF</p>
           </div>
         </div>
-    
-        <!-- Box 3 – Svadobné menu -->
-        <div class="col-lg-4 col-md-6">
-          <div class="wedding-box">
-            <img src="assets/img/original_d8eded65-0c2b-4984-88e5-fc285c9aef22_20240927_134952~2.jpg" alt="Svadobné menu">
-            <h5>Obrad v prírode</h5>
-            <p>Interiér aj exteriér, ktorý vás očarí. O jedinečnosť svadobného dňa sa postarajú naše krásne priestory.
-
-              Obrad pri vodnej kaskáde obklopenej zeleňou, romantická drevená pergola a zurčiaci potôčik vytvoria čarovnú atmosféru.
-              
-              Prírodné scenérie pre nezabudnuteľné "áno".</p>
-          </div>
-        </div>
-    
       </div>
-    </div>
-  </div>
-</section>
+    
+      <!-- Tri výrazné karty vedľa seba -->
+      <div class="container-fluid my-5">
+        <div class="row justify-content-center gy-4 gx-4">
+          <!-- Karta 1 -->
+          <div class="col-auto d-flex">
+            <div class="wedding-box">
+              <img src="assets/img/7cda534d-f805-4363-af45-1a65cc631f47.jpg" alt="Párty Koliba a Ubytovanie">
+              <h5>Párty Koliba a Ubytovanie</h5>
+              <p>O jedinečnosť Vášho svadobného dňa sa postarajú naše krásne priestory. Radi Vám pripravíme výzdobu exteriéru. Výzdobu svadobnej sály podľa Vašich predstáv zabezpečujeme našou partnerskou agentúrou. K dispozícii sú tri drevené zruby s kapacitou až 9 osôb. Pre novomanželov poskytujeme svadobný apartmán zadarmo.</p>
+            </div>
+          </div>
+    
+          <!-- Karta 2 -->
+          <div class="col-auto d-flex">
+            <div class="wedding-box">
+              <img src="assets/img/7d7601f4-533a-4b1c-95d5-d8e3fd30b203.jpg" alt="Svadobné menu">
+              <h5>Svadobné menu</h5>
+              <p>Pripravíme menu, ktoré poteší aj tých najnáročnejších gurmánov. V ponuke máme viacero kombinácií s aperitívom, predjedlom, polievkou, hlavným jedlom a bohatými bufetmi. Ceny balíčkov pre rok 2025 sú 56 €, 66 € a 76 € / osoba. Kompletnú ponuku nájdete <a href="assets/Svadobné balíčky -2025pdf.pdf">TU</a>.</p>
+            </div>
+          </div>
+    
+          <!-- Karta 3 -->
+          <div class="col-auto d-flex">
+            <div class="wedding-box">
+              <img src="assets/img/original_d8eded65-0c2b-4984-88e5-fc285c9aef22_20240927_134952~2.jpg" alt="Obrad v prírode">
+              <h5>Obrad v prírode</h5>
+              <p>Obrad pri vodnej kaskáde obklopenej zeleňou, romantická drevená pergola a zurčiaci potôčik vytvoria čarovnú atmosféru. Prírodné scenérie pre nezabudnuteľné „áno“.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="gallery" class="gallery">
+      <style>
+        /* === Štýly pre spoločný box === */
+        .video-reviews-box {
+          background-color: #fff;  /* Bledé pozadie */
+          border-radius: 24px;      /* Zaoblené rohy */
+          box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12); /* Tieň ako pri kartách */
+          padding: 30px;           /* Vyšší padding pre oddelenie obsahu */
+        }
+    
+        /* === Flexbox pre video a recenzie === */
+        .video-reviews-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 3rem;  /* Medzera medzi videom a recenziami */
+        }
+    
+        .video-box {
+          width: 48%;
+        }
+    
+        /* === Video nastavenie === */
+        .video-box iframe {
+          width: 100%;
+          height: 315px;
+          border-radius: 16px;
+        }
+    
+        /* === Nastavenie pre recenzie === */
+        .reviews-carousel {
+          width: 48%;
+        }
+    
+        /* === Text recenzií === */
+        .carousel-item {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          color: #000; /* Čierny text pre recenzie */
+        }
+    
+        /* === Šípky pre navigáciu === */
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+          background-color: transparent; /* Priesvitné pozadie pre šípky */
+          color: #000;  /* Čierna farba pre šípky */
+          font-size: 35px; /* Väčšie šípky */
+        }
+    
+        /* Posunutie šípok nižšie */
+        .carousel-control-prev-icon {
+          margin-top: 145px; /* Posunutie šípky do dolnej časti */
+        }
+    
+        .carousel-control-next-icon {
+          margin-top: 145px; /* Posunutie šípky do dolnej časti */
+        }
+    
+        /* === Úprava nadpisov === */
+        h2 {
+          color: #b89e5a; /* Zlatý text pre nadpisy */
+        }
+    
+        /* === Nový text pod box === */
+        .additional-text {
+          margin-top: 40px;
+          text-align: center;
+          font-size: 1.2rem;
+          line-height: 1.6;
+          color: #000; /* Čierny text */
+        }
+    
+        .additional-text a {
+          text-decoration: none;
+          color: #b89e5a;
+          font-weight: 700;
+        }
+      </style>
+    
+      <div class="container py-5">
+        <div class="video-reviews-box">
+          <h2 class="text-center mb-4" style="font-weight: 700;">Pozrite si atmosféru našich svadieb</h2>
+          
+          <!-- Flexbox pre video a recenzie -->
+          <div class="video-reviews-container">
+            <!-- Video na ľavej strane -->
+            <div class="video-box">
+              <div class="ratio ratio-16x9">
+                <iframe 
+                  src="https://www.youtube.com/embed/Xf_RaXfq9lE?si=89AJAMpPZvjEWtAQ" 
+                  title="Svadba video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy">
+                </iframe>
+              </div>
+            </div>
+    
+            <!-- Recenzie na pravej strane (karusel) -->
+            <div class="reviews-carousel">
+              <h2 class="text-center mb-3">Recenzie našich klientov</h2>
+              <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <p>"Náš svadobný deň bol nezabudnuteľný! Perfektná organizácia a nádherné prostredie."</p>
+                    <footer>- Jana a Peter</footer>
+                  </div>
+                  <div class="carousel-item">
+                    <p>"Párty Koliba vytvorila atmosféru, ktorá presne zodpovedala našim predstavám o svadbe."</p>
+                    <footer>- Lucia a Marek</footer>
+                  </div>
+                  <div class="carousel-item">
+                    <p>"Nezabudnuteľný zážitok pre nás a našich hostí. Určite by sme odporučili každému!"</p>
+                    <footer>- Simona a Tomáš</footer>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true">&lt;</span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true">&gt;</span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Dodatočný text -->
+        <div class="additional-text">
+          <p>Párty Koliba je miesto, kde sa Vaše sny zmenia v skutočnosť. Očarujúci interiér aj exteriér, individuálny prístup a dlhoročné skúsenosti nášho tímu v spojení s ohromujúcim cateringom sú dôvodmi, prečo si vybrať práve nás.</p>
+          <p>V prípade záujmu nás neváhajte kontaktovať na <a href="mailto:office@zlatapodkova.sk">office@zlatapodkova.sk</a>. Radi sa postaráme o to, aby bol Váš veľký deň naozaj nezabudnuteľný.</p>
+          <p><em>Ako darček od nás získate</em> <strong>poukážku na večeru</strong> pri príležitosti Vášho prvého výročia sobáša.</p>
+        </div>
+      </div>
+    </section>
 
 
 
@@ -281,7 +416,7 @@
     </div>
 
     <div class="contact">
-      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+      <form action="forms/book-svadby.php" method="post" role="form" class="php-email-form">
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Vaše meno" required>

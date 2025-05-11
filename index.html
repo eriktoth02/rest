@@ -257,29 +257,28 @@
       </div>
     
       <script>
-        const aktualityData = [
-          { title: "Nové zľavy na ubytovanie!", text: "Využite špeciálne zľavy na jar 2025.", date: "17. marca 2025" },
-          { title: "Rekonštrukcia spoločných priestorov", text: "Pripravujeme vylepšenie vonkajšej terasy.", date: "10. marca 2025" },
-          { title: "Zimná sezóna ukončená", text: "Ďakujeme za vašu priazeň, vidíme sa v lete!", date: "5. marca 2025" },
-          { title: "Nové športové aktivity", text: "Od apríla pribudne možnosť zapožičania e-bikov.", date: "1. marca 2025" }
-        ];
-    
-        function renderAktuality() {
-          const aktualityList = document.getElementById("aktuality-list");
-          aktualityData.forEach(aktualita => {
-            const aktualitaDiv = document.createElement("div");
-            aktualitaDiv.classList.add("aktualita");
-            aktualitaDiv.innerHTML = `
-              <h4>${aktualita.title}</h4>
-              <p>${aktualita.text}</p>
-              <div class="date">${aktualita.date}</div>
-            `;
-            aktualityList.appendChild(aktualitaDiv);
-          });
-        }
-    
-        document.addEventListener("DOMContentLoaded", renderAktuality);
-      </script>
+function renderAktuality(aktualityData) {
+    const aktualityList = document.getElementById("aktuality-list");
+    aktualityList.innerHTML = "";  // Vymaž existujúce
+    aktualityData.forEach(aktualita => {
+        const aktualitaDiv = document.createElement("div");
+        aktualitaDiv.classList.add("aktualita");
+        aktualitaDiv.innerHTML = `
+            <h4>${aktualita.title}</h4>
+            <p>${aktualita.text}</p>
+            <div class="date">${aktualita.date}</div>
+        `;
+        aktualityList.appendChild(aktualitaDiv);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("data/aktuality.json")
+        .then(response => response.json())
+        .then(data => renderAktuality(data))
+        .catch(error => console.error("Chyba pri načítaní aktualít:", error));
+});
+</script>
     </section>
     <!-- End Aktuality Section -->
 
@@ -378,7 +377,7 @@
           <p>Rezervácia</p>
         </div>
 
-        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+        <form action="forms/book-restauracia.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Vaše meno" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
@@ -422,70 +421,88 @@
 
     
 
-    <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery">
-      <style>
+   <!-- ======= Gallery Section ======= -->
+<section id="gallery" class="gallery">
+    <style>
         .gallery-item {
-          position: relative;
+            position: relative;
         }
         .gallery-item .image-text {
-          position: absolute;
-          bottom: 10px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: rgba(0, 0, 0, 0.6);
-          color: white;
-          padding: 10px 15px;
-          border-radius: 5px;
-          font-size: 16px;
-          font-weight: bold;
-          text-align: center;
-          width: 80%;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            width: 80%;
+            cursor: pointer;
         }
-      </style>
-      <div class="container" data-aos="fade-up">
+    </style>
+    <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <p>Galéria</p>
+            <p>Galéria</p>
         </div>
-      </div>
-    
-      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+    </div>
+
+    <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
         <div class="row g-0">
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="restaurant.html">
-                <img src="assets/img/IMG_7257 o.jpg" alt="Párty Koliba" class="img-fluid">
-                <p class="image-text">Reštaurácia</p>
-              </a>
+            <div class="col-lg-3 col-md-4">
+                <div class="gallery-item">
+                    <a href="assets/img/IMG_7257 o.jpg" class="glightbox">
+                        <img src="assets/img/IMG_7257 o.jpg" alt="Reštaurácia" class="img-fluid">
+                    </a>
+                    <a href="restaurant.html">
+                        <p class="image-text">Reštaurácia</p>
+                    </a>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="sports fields.html">
-                <img src="assets/img/sportoviska.jpg" alt="Reštaurácia" class="img-fluid">
-                <p class="image-text">Šport a zábava</p>
-              </a>
+            <div class="col-lg-3 col-md-4">
+                <div class="gallery-item">
+                    <a href="assets/img/sportoviska.jpg" class="glightbox">
+                        <img src="assets/img/sportoviska.jpg" alt="Šport a zábava" class="img-fluid">
+                    </a>
+                    <a href="sports fields.html">
+                        <p class="image-text">Šport a zábava</p>
+                    </a>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="wedding.html">
-                <img src="assets/img/377115132_1704449813388901_6934657981911701547_n.jpg" alt="Ubytovanie" class="img-fluid">
-                <p class="image-text">Svadba</p>
-              </a>
+            <div class="col-lg-3 col-md-4">
+                <div class="gallery-item">
+                    <a href="assets/img/377115132_1704449813388901_6934657981911701547_n.jpg" class="glightbox">
+                        <img src="assets/img/377115132_1704449813388901_6934657981911701547_n.jpg" alt="Svadba" class="img-fluid">
+                    </a>
+                    <a href="wedding.html">
+                        <p class="image-text">Svadba</p>
+                    </a>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="accpmmodation.html">
-                <img src="assets/img/IMG_6801 o.jpg" alt="Svadba" class="img-fluid">
-                <p class="image-text">Ubytovanie</p>
-              </a>
+            <div class="col-lg-3 col-md-4">
+                <div class="gallery-item">
+                    <a href="assets/img/IMG_6801 o.jpg" class="glightbox">
+                        <img src="assets/img/IMG_6801 o.jpg" alt="Ubytovanie" class="img-fluid">
+                    </a>
+                    <a href="accpmmodation.html">
+                        <p class="image-text">Ubytovanie</p>
+                    </a>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section><!-- End Gallery Section -->
+    </div>
+</section><!-- End Gallery Section -->
+
+<!-- Lightbox inicializácia -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const lightbox = GLightbox({
+        selector: '.glightbox'
+    });
+});
+</script>
 
 
 
@@ -503,7 +520,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
               <h3>Kontakt</h3>
-              <p>
+              <p><a href="admin/login.php">.</a>
                 Telefón: 055/6740488<br>
                 Email: <a href="mailto:office@zlatapodkova.sk">office@zlatapodkova.sk</a><br>
                 <a href="mailto:koliba.sportovisko@gmail.com">koliba.sportovisko@gmail.com</a>
