@@ -90,96 +90,103 @@
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
-      <style>
-        .about .content {
-          color: white;
-          padding-top: 20px;
-        }
-    
-        .about ul {
-          list-style: none;
-          padding-left: 0;
-          margin-top: 20px;
-        }
-    
-        .about ul li {
-          position: relative;
-          padding-left: 28px;
-          margin-bottom: 15px;
-          line-height: 1.6;
-        }
-    
-        .about ul li::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 7px;
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          border: 2px solid #bfa35f;
-          background-color: #bfa35f;
-          box-shadow: inset 0 0 0 2px white;
-        }
-    
-        .about h3 {
-          color: #bfa35f;
-          font-weight: bold;
-          margin-bottom: 20px;
-        }
-    
-        .about .about-img img {
-          border-radius: 10px;
-          width: 100%;
-          height: auto;
-        }
-    
-        .about .row {
-          margin-bottom: 60px;
-        }
-      </style>
-    
-      <div class="container" data-aos="fade-up">
-    
-        <!-- Prvý blok – Koliba -->
-        <div class="row align-items-center mb-5">
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
-            <div class="about-img">
-              <img src="assets/img/DJI_20250211090831_0057_D.JPG" alt="Koliba Zlatá podkova">
-            </div>
-          </div>
-          <div class="col-lg-6 order-2 order-lg-1 content">
-            <h3>Koliba Zlatá podkova</h3>
-            <ul>
-              <li>Nachádza sa v Košiciach na sídlisku KVP priamo v prírode – ideálne miesto pre relax, stretnutia s rodinou a priateľmi, teambuilding či svadbu.</li>
-              <li>Ponúka príjemnú atmosféru so širokou ponukou tradičných slovenských jedál.</li>
-              <li>Lokalita je dostupná, má vlastné parkovisko a dobré spojenie do mesta.</li>
-              <li>Vhodná pre turistiku, cykloturistiku – blízko Bankov, Alpinka, Jahodná.</li>
-            </ul>
-          </div>
+  <style>
+    .about .content {
+      color: white;
+      padding-top: 20px;
+    }
+
+    .about .custom-text p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .about ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+
+    .about ul li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .about ul li::before {
+  content: "➤";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 16px;
+  color: #bfa35f;
+}
+
+    .about h3 {
+      color: #bfa35f;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .about .about-img img {
+      border-radius: 10px;
+      width: 100%;
+      height: auto;
+    }
+
+    .about .row {
+      margin-bottom: 60px;
+    }
+  </style>
+
+  <div class="container" data-aos="fade-up">
+
+    <!-- Prvý blok – Koliba -->
+    <div class="row align-items-start mb-5">
+      <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+        <div class="about-img">
+          <img src="assets/img/DJI_20250211090831_0057_D.JPG" alt="Koliba Zlatá podkova">
         </div>
-    
-        <!-- Druhý blok – U nás nájdete -->
-        <div class="row align-items-center">
-          <div class="col-lg-6 order-1 order-lg-1" data-aos="zoom-in" data-aos-delay="100">
-            <div class="about-img">
-              <img src="assets/img/DJI_20250211090817_0056_D.jpg" alt="U nás nájdete">
-            </div>
-          </div>
-          <div class="col-lg-6 order-2 order-lg-2 content">
-            <h3>U nás nájdete</h3>
-            <ul>
-              <li>Reštauráciu s otvoreným kozubom a zastrešenou terasou, s možnosťou ubytovania sa v zrubových domoch.</li>
-              <li>Vonkajšie posedenie s nápojovým a jedálenským bufetom – otvorené od apríla do októbra pri priaznivom počasí.</li>
-              <li>Novovybudované športoviská – futbal, tenis, volejbal, nohejbal (rezervácia online).</li>
-              <li>Moderné detské ihrisko s nafukovacou trampolínou (vstup za poplatok).</li>
-              <li>Bowling – k dispozícii počas celého roka.</li>
-            </ul>
-          </div>
-        </div>
-    
       </div>
-    </section>
+      <div class="col-lg-6 order-2 order-lg-1 content custom-text">
+        <h3>Koliba Zlatá podkova</h3>
+        <p>
+          Koliba Zlatá podkova sa nachádza v Košiciach na sídlisku KVP priamo v prírode. Je to ideálne stredisko pre relax, stretnutie s rodinou a priateľmi, teambuilding, či svadbu.
+        </p>
+        <p>
+          Svojím hosťom poskytuje príjemnú atmosféru so širokým výberom slovenských jedál.
+        </p>
+        <p>
+          Atraktivitu územia znásobuje výhodná dopravná dostupnosť, ako aj vlastné parkovisko. Lokalita ponúka možnosti aktívneho i pasívneho oddychu vo forme turistiky a cykloturistiky. Medzi obľúbené trasy patria Bankov, Alpinka, ako aj Jahodná.
+        </p>
+      </div>
+    </div>
+
+    <!-- Druhý blok – U nás nájdete -->
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-1 order-lg-1" data-aos="zoom-in" data-aos-delay="100">
+        <div class="about-img">
+          <img src="assets/img/DJI_20250211090817_0056_D.jpg" alt="U nás nájdete">
+        </div>
+      </div>
+      <div class="col-lg-6 order-2 order-lg-2 content">
+        <h3>U nás nájdete</h3>
+        <ul>
+          <li>Reštauráciu s otvoreným kozubom a zastrešenou terasou, s možnosťou ubytovania sa v zrubových domoch.</li>
+          <li>Vonkajšie posedenie s nápojovým a jedálenským bufetom – otvorené od apríla do októbra pri priaznivom počasí.</li>
+          <li>
+  Novovybudované športoviská – futbal, tenis, volejbal, nohejbal 
+  (<a href="sports_fields_form.html" style="color: #bfa35f; text-decoration: underline;">rezervácia online</a>).
+</li>
+          <li>Moderné detské ihrisko s nafukovacou trampolínou (vstup za poplatok).</li>
+          <li>Bowling – k dispozícii počas celého roka.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
     <!-- End About Section -->
 
     <!-- ======= Aktuality Section ======= -->
