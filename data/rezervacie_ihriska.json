@@ -18,5 +18,27 @@
         "time": "12:00",
         "duration": 30,
         "note": "aaa"
+    },
+    {
+        "name": "Erik Tóth",
+        "email": "eriktoth02@gmail.com",
+        "phone": "0911641011",
+        "field": "Futbal",
+        "date": "2025-05-23",
+        "time": "09:00",
+        "duration": 60,
+        "locker": "áno",
+        "note": ""
+    },
+    {
+        "name": "Erik Tóth",
+        "email": "eriktoth02@gmail.com",
+        "phone": "0911641011",
+        "field": "Futbal",
+        "date": "2025-05-24",
+        "time": "08:00",
+        "duration": 30,
+        "locker": "áno",
+        "note": ""
     }
 ]

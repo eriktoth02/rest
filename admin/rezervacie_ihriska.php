@@ -84,6 +84,14 @@ $data = load_data($file);
                             echo "Tel: " . htmlspecialchars($res['phone'] ?? '') . "<br>";
                             echo "Email: " . htmlspecialchars($res['email'] ?? '') . "<br>";
                             echo "Čas: " . htmlspecialchars($res['time'] ?? '') . " (" . htmlspecialchars($res['duration'] ?? '60') . " min)<br>";
+                            if (!empty($res['locker']) && $res['locker'] === 'áno') {
+                                echo "Šatňa: áno<br>";
+                            } else {
+                                echo "Šatňa: nie<br>";
+                            }
+                            if (!empty($res['note'])) {
+                                echo "Poznámka: " . htmlspecialchars($res['note']) . "<br>";
+}
                             if (!empty($res['note'])) {
                                 echo "Poznámka: " . htmlspecialchars($res['note']) . "<br>";
                             }

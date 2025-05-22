@@ -80,111 +80,198 @@
 
 
     <!-- ======= Contact Section ======= -->
-    <section id="book-a-table" class="book-a-table">
-    <div class="container" data-aos="fade-up">
-        <div class="section-title">
-            <h2></h2>
-            <h2></h2>
-            <h2></h2>
-            <h2></h2>
-            <h2></h2>
-            <h2></h2>
-            <h2></h2>
-            <h2></h2>
-            <h2></h2>
-            <p>Rezervácia ihriska</p>
-        </div>
-
-        <form action="forms/book-ihriska.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Vaše meno" required>
-                </div>
-                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Váš email" required>
-                </div>
-                <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Vaše telefónne číslo" required>
-                </div>
-
-                <div class="col-lg-4 col-md-6 form-group mt-3">
-                    <label for="date">Dátum rezervácie</label>
-                    <input type="date" name="date" id="date" class="form-control" required>
-                </div>
-
-                <div class="col-lg-4 col-md-6 form-group mt-3">
-                    <label for="pitch">Ihrisko</label>
-                    <select class="form-control" name="pitch" id="pitch" required>
-                        <option value="">Vyberte ihrisko</option>
-                        <option value="Futbal">Futbal</option>
-                        <option value="Tenis">Tenis</option>
-                        <option value="Volejbal">Volejbal</option>
-                    </select>
-                </div>
-
-                <div class="col-lg-4 col-md-6 form-group mt-3">
-                    <label for="time">Voľné časy</label>
-                    <select name="time" id="time" class="form-control" required>
-                        <option value="">Najskôr vyberte dátum a ihrisko</option>
-                    </select>
-                </div>
-
-                <div class="col-lg-4 col-md-6 form-group mt-3">
-                    <input type="number" class="form-control" name="duration" id="duration" placeholder="Trvanie (min)" required>
-                </div>
-            </div>
-
-            <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Správa"></textarea>
-            </div>
-
-            <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Vaša rezervácia bola odoslaná. Ďakujeme!</div>
-            </div>
-            <div class="text-center"><button type="submit">Rezervovať teraz</button></div>
-        </form>
-    </div>
-</section>
-
-<!-- Skript na načítanie voľných časov -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const dateInput = document.getElementById('date');
-    const fieldSelect = document.getElementById('pitch');
-    const timeSelect = document.getElementById('time');
-    const durationInput = document.getElementById('duration');
-
-    function loadAvailableTimes() {
-        const date = dateInput.value;
-        const field = fieldSelect.value;
-        const duration = durationInput.value || 60;
-
-        if (date && field && duration) {
-            fetch(`forms/get-available-times.php?date=${date}&field=${field}&duration=${duration}`)
-                .then(response => response.json())
-                .then(times => {
-                    timeSelect.innerHTML = '<option value="">Vyberte čas</option>';
-                    if (times.length === 0) {
-                        timeSelect.innerHTML = '<option value="">Žiadne voľné časy</option>';
-                    } else {
-                        times.forEach(time => {
-                            const option = document.createElement('option');
-                            option.value = time;
-                            option.textContent = time;
-                            timeSelect.appendChild(option);
-                        });
-                    }
-                });
-        }
+   <section id="book-a-table" class="book-a-table">
+  <style>
+    .custom-checkbox {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 16px;
+      color: #333;
+      user-select: none;
+      font-weight: 500;
     }
 
-    dateInput.addEventListener('change', loadAvailableTimes);
-    fieldSelect.addEventListener('change', loadAvailableTimes);
-    durationInput.addEventListener('change', loadAvailableTimes);
-});
+    .custom-checkbox input {
+      display: none;
+    }
+
+    .custom-checkbox .checkmark {
+      width: 20px;
+      height: 20px;
+      background-color: #f5f5eb;
+      border: 2px solid #c7a556;
+      margin-right: 10px;
+      position: relative;
+      border-radius: 4px;
+      box-shadow: inset 0 0 1px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-checkbox input:checked + .checkmark::after {
+      content: "✔";
+      color: #c7a556;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  </style>
+
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2></h2>
+      <h2></h2>
+      <h2></h2>
+      <h2></h2>
+      <h2></h2>
+      <h2></h2>
+      <h2></h2>
+      <h2></h2>
+      <h2></h2>
+      <h2></h2>
+      <h2></h2>
+
+      <h2>Rezervácia ihriska</h2>
+      <p>Vyplňte formulár a rezervujte si ihrisko.</p>
+    </div>
+
+    <form action="forms/book-ihriska.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 form-group">
+          <input type="text" name="name" class="form-control" placeholder="Vaše meno" required>
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+          <input type="email" class="form-control" name="email" placeholder="Váš email" required>
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+          <input type="text" class="form-control" name="phone" placeholder="Vaše telefónne číslo" required>
+        </div>
+
+        <div class="col-lg-4 col-md-6 form-group mt-3">
+          <label for="date">Dátum rezervácie</label>
+          <input type="date" name="date" id="date" class="form-control" required>
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3">
+          <label for="pitch">Ihrisko</label>
+          <select class="form-control" name="pitch" id="pitch" required>
+            <option value="">Vyberte ihrisko</option>
+            <option value="Futbal">Futbal</option>
+            <option value="Tenis">Tenis</option>
+            <option value="Volejbal">Volejbal</option>
+          </select>
+        </div>
+        <div class="col-lg-4 col-md-6 form-group mt-3">
+          <label for="time">Voľné časy</label>
+          <select name="time" id="time" class="form-control" required>
+            <option value="">Najskôr vyberte dátum a ihrisko</option>
+          </select>
+        </div>
+
+        <div class="col-lg-4 col-md-6 form-group mt-3">
+          <input type="number" class="form-control" name="duration" id="duration" placeholder="Trvanie (min)" required>
+        </div>
+
+        <!-- Šatňa -->
+        <div class="col-lg-4 col-md-6 form-group mt-3">
+          <label class="custom-checkbox">
+            <input type="checkbox" name="locker" value="yes">
+            <span class="checkmark"></span>
+            Chcem použiť šatňu
+          </label>
+        </div>
+
+        <!-- Tlačidlo modalu -->
+        <div class="col-lg-4 col-md-6 form-group mt-3 text-center">
+          <button type="button" class="btn btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#scheduleModal" onclick="loadSchedule()">Zobraziť obsadenosť</button>
+        </div>
+      </div>
+
+      <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" placeholder="Správa"></textarea>
+      </div>
+<div class="mb-3">
+  <div class="loading">Načítava sa...</div>
+  <div class="error-message"></div>
+  <div class="sent-message">Vaša rezervácia bola úspešne odoslaná. Ďakujeme!</div>
+</div>
+      <div class="text-center"><button type="submit">Rezervovať teraz</button></div>
+    </form>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Harmonogram obsadenosti</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zavrieť"></button>
+      </div>
+      <div class="modal-body" id="scheduleContent">
+        Načítavam údaje...
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+  const dateInput = document.getElementById('date');
+  const fieldSelect = document.getElementById('pitch');
+  const timeSelect = document.getElementById('time');
+  const durationInput = document.getElementById('duration');
+
+  function loadAvailableTimes() {
+    const date = dateInput.value;
+    const field = fieldSelect.value;
+    const duration = durationInput.value || 60;
+
+    if (date && field && duration) {
+      fetch(`forms/get-available-times.php?date=${date}&field=${field}&duration=${duration}`)
+        .then(response => response.json())
+        .then(times => {
+          timeSelect.innerHTML = '<option value="">Vyberte čas</option>';
+          if (times.length === 0) {
+            timeSelect.innerHTML = '<option value="">Žiadne voľné časy</option>';
+          } else {
+            times.forEach(time => {
+              const option = document.createElement('option');
+              option.value = time;
+              option.textContent = time;
+              timeSelect.appendChild(option);
+            });
+          }
+        });
+    }
+  }
+
+  function loadSchedule() {
+    const date = dateInput.value;
+    const field = fieldSelect.value;
+    const container = document.getElementById("scheduleContent");
+
+    if (!date || !field) {
+      container.innerHTML = "Prosím, vyberte dátum a ihrisko.";
+      return;
+    }
+
+    container.innerHTML = "Načítavam harmonogram...";
+    fetch(`forms/get-schedule.php?date=${date}&field=${field}`)
+      .then(response => response.text())
+      .then(html => {
+        container.innerHTML = html;
+      })
+      .catch(err => {
+        container.innerHTML = "Nepodarilo sa načítať harmonogram.";
+      });
+  }
+
+  dateInput.addEventListener('change', loadAvailableTimes);
+  fieldSelect.addEventListener('change', loadAvailableTimes);
+  durationInput.addEventListener('change', loadAvailableTimes);
 </script>
+
 <!-- End Book A Table Section --><!-- End Book Accommodation Section --><!-- End Contact Section -->
 
   </main><!-- End #main -->
