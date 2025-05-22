@@ -1,6 +1,6 @@
 [
     {
-        "name": "Erik Tóth",
+        "name": "Erik T\u00f3th",
         "email": "eriktoth02@gmail.com",
         "phone": "0911641011",
         "field": "Futbal",
@@ -10,7 +10,7 @@
         "note": "satna ano"
     },
     {
-        "name": "Erik Tóth",
+        "name": "Erik T\u00f3th",
         "email": "eriktoth02@gmail.com",
         "phone": "0911641011",
         "field": "Futbal",
@@ -20,25 +20,36 @@
         "note": "aaa"
     },
     {
-        "name": "Erik Tóth",
+        "name": "Erik T\u00f3th",
         "email": "eriktoth02@gmail.com",
         "phone": "0911641011",
         "field": "Futbal",
         "date": "2025-05-23",
         "time": "09:00",
         "duration": 60,
-        "locker": "áno",
+        "locker": "\u00e1no",
         "note": ""
     },
     {
-        "name": "Erik Tóth",
+        "name": "Erik T\u00f3th",
         "email": "eriktoth02@gmail.com",
         "phone": "0911641011",
         "field": "Futbal",
         "date": "2025-05-24",
         "time": "08:00",
         "duration": 30,
-        "locker": "áno",
+        "locker": "\u00e1no",
+        "note": ""
+    },
+    {
+        "name": "Erik T\u00f3th",
+        "email": "eriktoth02@gmail.com",
+        "phone": "0911641011",
+        "field": "Futbal",
+        "date": "2025-05-25",
+        "time": "09:30",
+        "duration": 30,
+        "locker": "\u00e1no",
         "note": ""
     }
 ]

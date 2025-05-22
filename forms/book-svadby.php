@@ -9,5 +9,5 @@ $data = [
 ];
 
 save_to_json("../data/rezervacie_svadby.json", $data);
-echo "Rezervácia na svadbu bola uložená.";
+echo "OK";
 ?>

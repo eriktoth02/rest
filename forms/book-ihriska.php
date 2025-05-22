@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     file_put_contents($file, json_encode($reservations, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
-    echo "Rezervácia ihriska bola úspešne uložená.";
+    echo "OK";
 } else {
     die("Neplatná požiadavka.");
 }

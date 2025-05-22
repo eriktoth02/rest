@@ -11,5 +11,5 @@ $data = [
 ];
 
 save_to_json("../data/rezervacie_ubytovanie.json", $data);
-echo "Rezervácia ubytovania bola uložená.";
+echo "OK";
 ?>
