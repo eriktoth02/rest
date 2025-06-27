@@ -2,7 +2,7 @@
 if (!isset($_POST['g-recaptcha-response'])) {
     die("reCAPTCHA nebola vyplnená.");
 }
-$secretKey = "6Ldo6W4rAAAAABvbnxiZr6fbeWDhzS1Zb84ywf-g";
+$secretKey = "";
 $responseKey = $_POST['g-recaptcha-response'];
 $userIP = $_SERVER['REMOTE_ADDR'];
 
