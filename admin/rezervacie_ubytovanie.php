@@ -1,8 +1,8 @@
 <?php
-session_start();
-if (!isset($_SESSION['admin_logged_in'])) {
-    header("Location: login.php");
-    exit();
+// Nahradenie starého session kódu novým bezpečnostným skriptom
+require_once 'session_check.php';
+if ($_SESSION['role'] !== 'admin') {
+    die("Prístup zamietnutý");
 }
 
 $file = "../data/rezervacie_ubytovanie.json";

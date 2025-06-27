@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/image (3).png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -27,6 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <!-- =======================================================
   * Template Name: Restaurantly - v3.1.0
@@ -116,6 +117,23 @@
       font-size: 14px;
       font-weight: bold;
     }
+    #price-container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+#price-estimate {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #000; /* Čierna farba */
+}
+
+.price-label {
+  color: #000;
+  display: block;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
   </style>
 
   <div class="container" data-aos="fade-up">
@@ -195,21 +213,29 @@
   <div class="error-message"></div>
   <div class="sent-message">Vaša rezervácia bola úspešne odoslaná. Ďakujeme!</div>
 </div>
+<div class="form-group mt-3 text-center" id="price-container">
+  <label class="price-label">Odhadovaná cena:</label>
+  <div id="price-estimate">0 €</div>
+</div>
       <div class="text-center"><button type="submit">Rezervovať teraz</button></div>
+      <div class="g-recaptcha" data-sitekey="6Ldo6W4rAAAAAEtqa5e7hgSyj6LMQsJ_ANpOb_7I"></div>
     </form>
+    
   </div>
 </section>
 
 <!-- Modal -->
 <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Harmonogram obsadenosti</h5>
+        <h5 class="modal-title" id="scheduleModalLabel">Harmonogram obsadenosti</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zavrieť"></button>
       </div>
-      <div class="modal-body" id="scheduleContent">
-        Načítavam údaje...
+      <div class="modal-body">
+        <div id="schedule-table" class="table-responsive text-center">
+          Načítava sa...
+        </div>
       </div>
     </div>
   </div>
@@ -246,26 +272,72 @@
     }
   }
 
-  function loadSchedule() {
-    const date = dateInput.value;
-    const field = fieldSelect.value;
-    const container = document.getElementById("scheduleContent");
+  
+function loadSchedule() {
+  const dateInput = document.getElementById("date");
+  const pitchInput = document.getElementById("pitch");
 
-    if (!date || !field) {
-      container.innerHTML = "Prosím, vyberte dátum a ihrisko.";
-      return;
-    }
+  const date = dateInput.value;
+  const pitch = pitchInput.value;
 
-    container.innerHTML = "Načítavam harmonogram...";
-    fetch(`forms/get-schedule.php?date=${date}&field=${field}`)
-      .then(response => response.text())
-      .then(html => {
-        container.innerHTML = html;
-      })
-      .catch(err => {
-        container.innerHTML = "Nepodarilo sa načítať harmonogram.";
-      });
+  if (!date || !pitch) {
+    alert("Najskôr vyberte dátum a ihrisko.");
+    return;
   }
+
+  fetch(`forms/get-available-times.php?date=${date}&pitch=${pitch}`)
+    .then(res => res.json())
+    .then(data => {
+      const startDate = new Date(date);
+      const table = document.createElement("table");
+      table.className = "table table-bordered text-center";
+
+      const thead = document.createElement("thead");
+      const headerRow = document.createElement("tr");
+      headerRow.innerHTML = "<th>Čas</th>";
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(startDate);
+        d.setDate(d.getDate() + i);
+        const dayLabel = d.toLocaleDateString("sk-SK", { weekday: "short", day: "2-digit", month: "2-digit" });
+        const th = document.createElement("th");
+        th.textContent = dayLabel;
+        headerRow.appendChild(th);
+      }
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+
+      const tbody = document.createElement("tbody");
+      for (let hour = 8; hour <= 22; hour++) {
+        const row = document.createElement("tr");
+        const timeCell = document.createElement("td");
+        timeCell.textContent = `${hour}:00`;
+        row.appendChild(timeCell);
+
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(startDate);
+          d.setDate(d.getDate() + i);
+          const dayStr = d.toISOString().split("T")[0];
+          const slotKey = `${dayStr} ${hour.toString().padStart(2, "0")}:00`;
+
+          const cell = document.createElement("td");
+          cell.textContent = data[slotKey] ? "Rezervované" : "Voľné";
+          cell.classList.add(data[slotKey] ? "text-danger" : "text-success");
+          row.appendChild(cell);
+        }
+
+        tbody.appendChild(row);
+      }
+      table.appendChild(tbody);
+
+      const scheduleContainer = document.getElementById("schedule-table");
+      scheduleContainer.innerHTML = "";
+      scheduleContainer.appendChild(table);
+    })
+    .catch(err => {
+      document.getElementById("schedule-table").innerHTML = "<p class='text-danger'>Nepodarilo sa načítať obsadenosť.</p>";
+    });
+}
+
 
   dateInput.addEventListener('change', loadAvailableTimes);
   fieldSelect.addEventListener('change', loadAvailableTimes);
@@ -315,7 +387,7 @@
             <div class="footer-info">
               <h3>Adresa</h3>
               <p>
-                Sídlisko KVP II., Szabadošova 3140<br>
+                Sídlisko KVP II., Szabadošova 04023<br>
                 Košice, Slovenská republika
               </p>
               <a href="https://www.google.com/maps/search/?api=1&query=Sídlisko+KVP+II.,+Szabadošova+3140,+Košice" target="_blank">Zobraziť mapu</a>
@@ -327,11 +399,10 @@
             <div class="footer-info">
               <h3>Sociálne siete</h3>
               <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                
                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                
               </div>
             </div>
           </div>
@@ -340,22 +411,7 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Restaurantly</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/restaurantly-restaurant-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
@@ -369,5 +425,75 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+<script>
+  const pitch = document.getElementById("pitch");
+  const time = document.getElementById("time");
+  const date = document.getElementById("date");
+  const duration = document.getElementById("duration");
+  const locker = document.querySelector("input[name='locker']");
+  const priceField = document.getElementById("price-estimate");
+
+  function updatePrice() {
+    const pitchVal = pitch.value;
+    const timeVal = time.value;
+    const dateVal = date.value;
+    const durationVal = parseInt(duration.value);
+    const useLocker = locker.checked;
+
+    if (!pitchVal || !timeVal || !dateVal || !durationVal) {
+      priceField.textContent = "0 €";
+      return;
+    }
+
+    const day = new Date(dateVal).getDay(); // 0 = Nedeľa, 6 = Sobota
+    const hour = parseInt(timeVal.split(":")[0]);
+
+    const isWeekend = (day === 0 || day === 6);
+    const isEvening = hour >= 16;
+
+    let basePrice = 0;
+
+    const pricing = {
+      "Futbal": {
+        "60": [15, 20],
+        "90": [20, 25],
+        "120": [25, 30]
+      },
+      "Tenis": {
+        "60": [13, 15],
+        "90": [17, 20],
+        "120": [20, 25]
+      },
+      "Volejbal": {
+        "60": [15, 20],
+        "90": [20, 25],
+        "120": [25, 30]
+      }
+    };
+
+    const category = pricing[pitchVal];
+    const key = [60, 90, 120].includes(durationVal) ? durationVal.toString() : null;
+
+    if (category && key) {
+      if (isWeekend) {
+        basePrice = category[key][1];
+      } else {
+        basePrice = isEvening ? category[key][1] : category[key][0];
+      }
+    }
+
+    if (useLocker) {
+      basePrice += 5;
+    }
+
+    priceField.textContent = basePrice.toFixed(2) + " €";
+  }
+
+  pitch.addEventListener("change", updatePrice);
+  time.addEventListener("change", updatePrice);
+  date.addEventListener("change", updatePrice);
+  duration.addEventListener("input", updatePrice);
+  locker.addEventListener("change", updatePrice);
+</script>
 
 </html>

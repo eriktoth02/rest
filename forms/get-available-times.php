@@ -1,11 +1,10 @@
 <?php
 header('Content-Type: application/json');
 
-$date = $_GET['date'] ?? '';
+$startDate = $_GET['date'] ?? '';
 $field = $_GET['field'] ?? '';
-$duration = isset($_GET['duration']) ? (int)$_GET['duration'] : 60; // predvolene 60 min
 
-if (empty($date) || empty($field) || $duration <= 0) {
+if (empty($startDate) || empty($field)) {
     echo json_encode([]);
     exit();
 }
@@ -13,34 +12,32 @@ if (empty($date) || empty($field) || $duration <= 0) {
 $file = "../data/rezervacie_ihriska.json";
 $reservations = file_exists($file) ? json_decode(file_get_contents($file), true) : [];
 
-// Vygenerujeme všetky štarty od 08:00 do 22:00 - duration
-$availableTimes = [];
-$start = strtotime("$date 08:00");
-$end = strtotime("$date 22:00") - ($duration * 60); // posledný možný začiatok
+$output = [];
 
-for ($slot = $start; $slot <= $end; $slot += 15 * 60) {
-    $new_start = $slot;
-    $new_end = $new_start + ($duration * 60);
+$startTimestamp = strtotime($startDate);
+for ($dayOffset = 0; $dayOffset < 7; $dayOffset++) {
+    $date = date('Y-m-d', strtotime("+$dayOffset day", $startTimestamp));
 
-    $conflict = false;
-    foreach ($reservations as $res) {
-        if (($res['date'] ?? '') === $date && ($res['field'] ?? '') === $field) {
-            $existing_start = strtotime($res['date'] . ' ' . $res['time']);
-            $existing_duration = (int)($res['duration'] ?? 60);
-            $existing_end = $existing_start + $existing_duration * 60;
+    for ($hour = 8; $hour <= 22; $hour++) {
+        $slotTime = sprintf('%s %02d:00', $date, $hour);
+        $slotTaken = false;
 
-            // Kontrola prekrývania
-            if ($new_start < $existing_end && $existing_start < $new_end) {
-                $conflict = true;
-                break;
+        foreach ($reservations as $res) {
+            if (($res['date'] ?? '') === $date && ($res['field'] ?? '') === $field) {
+                $resStart = strtotime($res['date'] . ' ' . $res['time']);
+                $resDuration = (int)($res['duration'] ?? 60);
+                $resEnd = $resStart + $resDuration * 60;
+
+                $checkTime = strtotime($slotTime);
+                if ($checkTime >= $resStart && $checkTime < $resEnd) {
+                    $slotTaken = true;
+                    break;
+                }
             }
         }
-    }
 
-    if (!$conflict) {
-        $availableTimes[] = date('H:i', $new_start);
+        $output[$slotTime] = $slotTaken;
     }
 }
 
-echo json_encode($availableTimes);
-?>
+echo json_encode($output);

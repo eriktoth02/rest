@@ -1,4 +1,18 @@
 <?php
+if (!isset($_POST['g-recaptcha-response'])) {
+    die("reCAPTCHA nebola vyplnená.");
+}
+$secretKey = "6Ldo6W4rAAAAABvbnxiZr6fbeWDhzS1Zb84ywf-g";
+$responseKey = $_POST['g-recaptcha-response'];
+$userIP = $_SERVER['REMOTE_ADDR'];
+
+$verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$responseKey&remoteip=$userIP";
+$response = file_get_contents($verifyURL);
+$response = json_decode($response);
+
+if (!$response->success) {
+    die("reCAPTCHA overenie zlyhalo. Skúste to znova.");
+}
 include 'save_to_json.php';
 
 $data = [

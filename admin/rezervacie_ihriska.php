@@ -1,9 +1,6 @@
 <?php
-session_start();
-if (!isset($_SESSION['admin_logged_in'])) {
-    header("Location: login.php");
-    exit();
-}
+// Nahradenie starého session kódu novým bezpečnostným skriptom
+require_once 'session_check.php';
 
 $file = "../data/rezervacie_ihriska.json";
 
@@ -69,40 +66,63 @@ $data = load_data($file);
         </thead>
         <tbody>
             <?php
-            for ($hour = 8; $hour <= 22; $hour++) {
-                echo "<tr>";
-                echo "<td>{$hour}:00</td>";
-                for ($day = 0; $day < 7; $day++) {
-                    $currentDate = date('Y-m-d', strtotime("$monday +$day days"));
-                    echo "<td>";
-                    foreach ($data as $index => $res) {
-                        $resHour = intval(substr($res['time'] ?? '00:00', 0, 2));
-                        if (($res['date'] ?? '') == $currentDate && $resHour == $hour) {
-                            echo "<div class='border rounded p-2 mb-1 bg-light'>";
-                            echo "<strong>" . htmlspecialchars($res['field'] ?? '') . "</strong><br>";
-                            echo "Meno: " . htmlspecialchars($res['name'] ?? '') . "<br>";
-                            echo "Tel: " . htmlspecialchars($res['phone'] ?? '') . "<br>";
-                            echo "Email: " . htmlspecialchars($res['email'] ?? '') . "<br>";
-                            echo "Čas: " . htmlspecialchars($res['time'] ?? '') . " (" . htmlspecialchars($res['duration'] ?? '60') . " min)<br>";
-                            if (!empty($res['locker']) && $res['locker'] === 'áno') {
-                                echo "Šatňa: áno<br>";
-                            } else {
-                                echo "Šatňa: nie<br>";
-                            }
-                            if (!empty($res['note'])) {
-                                echo "Poznámka: " . htmlspecialchars($res['note']) . "<br>";
-}
-                            if (!empty($res['note'])) {
-                                echo "Poznámka: " . htmlspecialchars($res['note']) . "<br>";
-                            }
-                            echo "<a href='?delete=$index&week=$monday' class='btn btn-sm btn-danger mt-2'>Zmazať</a>";
-                            echo "</div>";
-                        }
+            $skipCells = []; // použije sa na vynechanie buniek obsadených rowspan
+
+for ($hour = 8; $hour <= 22; $hour++) {
+    echo "<tr>";
+    echo "<td>{$hour}:00</td>";
+
+    for ($day = 0; $day < 7; $day++) {
+        $currentDate = date('Y-m-d', strtotime("$monday +$day days"));
+        $key = $currentDate . '-' . $hour;
+
+        if (isset($skipCells[$key])) {
+            continue; // tento slot je súčasťou predchádzajúceho rowspan
+        }
+
+        $printed = false;
+        foreach ($data as $index => $res) {
+            if (($res['date'] ?? '') == $currentDate) {
+                $startHour = intval(substr($res['time'], 0, 2));
+                $startMin = intval(substr($res['time'], 3, 2));
+                $startTime = $startHour + ($startMin / 60);
+                $duration = intval($res['duration'] ?? 60);
+                $durationHours = ceil($duration / 60); // napr. 90 min → 2 hod
+
+                if (abs($hour - $startTime) < 0.01) { // presná zhoda s časom rezervácie
+                    echo "<td rowspan='{$durationHours}'>";
+                    echo "<div class='border rounded p-2 mb-1 bg-light'>";
+                    echo "<strong>" . htmlspecialchars($res['field'] ?? '') . "</strong><br>";
+                    echo "Meno: " . htmlspecialchars($res['name'] ?? '') . "<br>";
+                    echo "Tel: " . htmlspecialchars($res['phone'] ?? '') . "<br>";
+                    echo "Email: " . htmlspecialchars($res['email'] ?? '') . "<br>";
+                    echo "Čas: " . htmlspecialchars($res['time'] ?? '') . " ({$duration} min)<br>";
+                    echo "Šatňa: " . (!empty($res['locker']) && $res['locker'] === 'áno' ? 'áno' : 'nie') . "<br>";
+                    if (!empty($res['note'])) {
+                        echo "Poznámka: " . htmlspecialchars($res['note']) . "<br>";
                     }
+                    echo "<a href='?delete=$index&week=$monday' class='btn btn-sm btn-danger mt-2'>Zmazať</a>";
+                    echo "</div>";
                     echo "</td>";
+                    $printed = true;
+
+                    // označíme ďalšie bunky, ktoré už netreba vykresliť
+                    for ($i = 1; $i < $durationHours; $i++) {
+                        $skipKey = $currentDate . '-' . ($hour + $i);
+                        $skipCells[$skipKey] = true;
+                    }
+                    break;
                 }
-                echo "</tr>";
             }
+        }
+
+        if (!$printed) {
+            echo "<td></td>";
+        }
+    }
+
+    echo "</tr>";
+}
             ?>
         </tbody>
     </table>
